@@ -1,0 +1,49 @@
+.car-section{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    padding: 1em;
+    background-color: aliceblue;
+}
+.car-section h1{
+    font-size: 2em;
+    opacity: .7;
+    margin-bottom: .5em;
+}
+.car-section .card{
+    display:flex;
+    flex-direction: column;
+}
+.car-section .card-body{
+    
+}
+.car-section .card-body .card-img{
+    width: 100%;
+}
+.car-section .card-body .card-details h3{
+    margin: .5em 0;
+}
+.car-section .card .card-footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.car-section .card .card-footer .danger-zone{
+    border: 1px solid rgba(236, 27, 27, 0.404);
+    padding: .5em;
+    border-radius: 8px;
+
+}
+.car-section .card .card-footer .btn:first-child,
+.car-section .card .card-footer .danger-zone .btn:first-child
+{
+    margin-right: 1em;
+}
+.car-section .card .card-body .card-img img{
+    min-height: 200px;
+    width: 100%;
+    border-radius: 8px;
+}
+.car-section .card .card-footer{
+    margin-top:1em;
+}

@@ -1,0 +1,82 @@
+.forms{
+    width: 100%;
+    background: rgba(207, 207, 255, 0.534);
+    padding: 1.3em 1em;
+}
+
+.forms .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.forms legend{
+
+    text-align: center;
+    font-size: 1.3em;
+}
+.forms form{
+    width: 100%;
+}
+.forms form div{
+    margin: 1em ; 
+}
+.forms form div label{
+}
+.forms form input{
+    width: 100%;
+    padding: .5em 0;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-size:1em;
+}
+/* .forms form input::before{
+    content: '';
+    border: none;
+    border-radius: 4px;
+} */
+.forms form input:focus{
+    border:1px solid red;
+}
+.forms form div:last-child{
+    display: flex;
+}
+.forms .container .btn{
+   margin: 0 auto;
+}
+
+@media screen and (min-width:600px) {
+    .forms .container{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .forms .container .line{
+    height: 50vh;
+    width: 2px;
+    background-color: rgba(107, 107, 107, 0.103);
+    border-radius: 4px;
+    margin: auto 1em;
+    display: none;
+
+    }
+    .forms form{
+        width: 90%;
+    }
+    .forms form input{
+        width: 100%;
+    }
+    
+}
+@media screen and (min-width:700px) {
+    .forms form {
+        width: 50%;
+        margin: 0 auto;
+    }  
+}
+@media screen and (min-width:800px) {
+    .forms form {
+        width: 35%;
+    }
+    .forms .container .line{
+        display: block;
+    }
+}

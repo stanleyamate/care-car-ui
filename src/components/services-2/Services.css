@@ -1,0 +1,55 @@
+.services{
+    margin: 2rem 0;
+    text-align: center;
+    width: 100%;
+}
+.services >div{
+    display: flex;
+    justify-content: center;
+    padding:0.2em 1em;
+}
+.services p{
+    padding: 0 1em;
+    margin: .5em ;
+}
+.services h1{
+  color: black;
+}
+.bold{
+    font-weight: 700;
+    color: black;
+}
+.services .container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.2rem;
+    padding: 1rem;
+}
+.services img{
+    width: 100%;
+}
+.services div{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 740px) and (min-width: 571px)  {
+    .services .container{
+        grid-template-columns: repeat(2,1fr);
+        gap: 0.5rem ;
+    }
+    .services > div {
+        padding: 1rem;
+
+    }
+    .services p{
+        font-size: 1em;
+        margin: 0 .1rem;
+    }
+}
+@media screen and (max-width: 570px)  {
+    .services .container{
+        grid-template-columns: 1fr;
+        gap: 0.5em;
+    }
+    
+}

@@ -1,0 +1,15 @@
+a{
+    text-decoration: none;
+}
+.icon-con{
+    padding: .3em .5em;
+}
+.icon-con:hover{
+    background: rgb(218, 223, 224);
+    border-radius: 2px;
+}
+@media screen and (max-width:600px){
+    .mobile-hide{
+        display: none;
+    }
+}

@@ -1,0 +1,197 @@
+.admin-container{
+    display: block;
+
+}
+.admin-container .side-bar{
+    width: 100%;
+    display: flex;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1em 0;
+
+}
+.admin-container .side-bar .profile{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding:1em;
+}
+.admin-container .side-bar .profile,
+.admin-container .side-bar .details,
+.admin-container .content .buttons{
+    border: 1px solid rgb(228, 220, 220);
+    border-radius: 10px;
+    background-color: white;
+}
+.admin-container .side-bar .details{
+    padding: 0 1em 1em 1em;
+    margin-top: 1em;
+    
+}
+
+.admin-container .side-bar .profile-name{
+    margin-left: 1em;
+    font-size: 1.4em;
+    
+}
+
+.admin-container .side-bar li {
+    margin-top: 1em;
+}
+.admin-container .side-bar div {
+    width: 100%;
+}
+img[alt="profile-img"]{
+    height: 50px;
+    border-radius: 50%;
+    width: 50px;
+    border: 2px solid rgb(132, 130, 247);
+    padding: .11em;
+}
+.admin-container .side-bar #subscribe{
+    color: green;
+}
+.admin-container .content{
+    padding: 1em;
+}
+.admin-container .content .buttons{
+    background-color: beige;
+    padding: 1em;
+    display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}
+.admin-container .content .buttons .btn:not(.content .buttons .btn:last-child){
+    margin-bottom: .5em;
+}
+.admin-container .content .buttons .btn{
+    width: 100%;
+
+}
+.admin-container .content .sub-content{
+    width: 100%;
+    margin-top: 1em;
+    padding-top: 1em;
+    height: auto;
+    border-top: 1px solid rgba(125, 159, 233, 0.568);
+}
+
+.admin-container .content .user,
+.admin-container .content .service{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-container .content .service-section .service-form{
+    border-radius: 10px;
+    height: auto;
+   margin-top: 1em;
+   background: rgb(215, 215, 241);
+   padding: 1em;
+}
+.admin-container .content .service-section form{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.admin-container .content .service-section form input{
+   font-size: 1.2em;
+   border: 1px solid rgb(164, 164, 231);
+   width: 80%;
+   padding: .4em 0;
+   border-radius: 10px;
+}
+.admin-container .content .user:not(.content .user:last-child),
+.admin-container .content .service:not(.content .service:last-child)
+{
+    margin-bottom: .5em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid rgb(230, 218, 218);
+}
+.admin-container .content .buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+@media (min-width:750px) {
+    .admin-container{
+        display: flex;
+        padding: 0 3em;
+    }
+    .admin-container .side-bar{
+        width: 40%;
+    }
+    .admin-container .content{
+        width: 60%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "buttons"
+                               "user" 
+                             "service";
+    }
+    .admin-container .content .buttons{
+       grid-area: buttons;
+    }
+    .admin-container .content .user-list{
+       grid-area: user;
+       
+    }
+    .admin-container .content .service-section{
+        grid-area: service;
+    }
+    .admin-container .content .service-section form input{
+        width: 80%;  
+     }
+    .admin-container .content .service-section form .btn{
+        width: 17%;  
+     }
+}
+@media (min-width:950px) {
+    .admin-container{
+        display: flex; 
+        padding: 0 3em;   
+    }
+    .admin-container .side-bar{
+        width: 40%;
+    }
+    .admin-container .content{
+        width: 100%
+    }
+    .admin-container .content .buttons{
+       flex-direction: row;
+    }
+    .admin-container .content .buttons .btn{
+       width: auto;
+    }
+    .admin-container .content .buttons .btn:not(.content .buttons .btn:last-child){
+        margin-bottom: 0;
+    }
+    .admin-container .content .user-list{
+       grid-area: user;
+       
+    }
+    .admin-container .content .service-section{
+        grid-area: service;
+    }
+}
+/* @media (min-width:1042px) {
+    .admin-container{
+        padding: 0 5em;
+    }
+    .admin-container .side-bar{
+        width: 30%;
+    }
+    .admin-container .content{
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "buttons buttons"
+                             "user service";
+    }
+ 
+} */

@@ -1,0 +1,67 @@
+.footer{
+    background: rgb(247, 244, 244);
+    padding: 2em;
+}
+.footer .footer-base{
+}
+.footer .social{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2em;
+}
+.footer .container{
+    --gap:2em;
+    display: grid;
+    grid-template-columns:  repeat(4,1fr);
+    grid-template-areas: 'col-1 col-1 col-1 col-1'
+                         'col-2 col-2 col-2 col-2'
+                         'col-3 col-3 col-3 col-3'
+                         'col-4 col-4 col-4 col-4';
+    text-align: center;
+    justify-content: center;
+    gap: var(--gap);
+}
+.footer .col-logo{
+    text-align: center;
+}
+.footer .col-1{
+    grid-area: col-1;
+}
+.footer .col-2{
+    grid-area: col-2;
+}
+.footer .col-3{
+    grid-area: col-3;
+}
+.footer .col-4{
+    grid-area: col-4;
+}
+.footer .col h3{
+    margin-bottom: .6em;
+}
+.footer .col h3,.footer .col p{
+    font-size: 1.8em;
+}
+.footer p:not(.footer p:last-child){
+    margin-bottom: .6em;
+}
+
+@media screen and (min-width:450px){
+    .footer .container{
+        grid-template-areas: 'col-1 col-1 col-2 col-2'
+                             'col-3 col-3 col-4 col-4';
+    }
+    .footer .social p{
+        margin: 1em;
+    }
+    .footer .col h3, .footer .col p{
+        font-size: 1em;
+    }
+}
+@media screen and (min-width:700px){
+    .footer .container{
+        grid-template-areas: 'col-1 col-2 col-3 col-4';
+        font-size: 1em;
+    }
+}
