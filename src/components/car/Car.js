@@ -18,11 +18,7 @@ const Car = () => {
                    </div>
                 </div>
                 <div className='card-footer'>
-                    <button className='btn btn-yellow'>Edit</button>
-                    <div className='danger-zone'>
-                    <button className='btn btn-red'>Unsubscribe</button>
-                    <button className='btn btn-red'>Delete</button>
-                    </div>
+                   
                 </div>
             </div>
         </div>

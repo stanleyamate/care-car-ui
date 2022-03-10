@@ -22,7 +22,7 @@ const Navbar = () => {
               <Link to={'/service'} onClick={handleDefault}>Services</Link>
             </li>
             <li>
-              <Link to={'/admin-dashboard'} onClick={handleDefault}>Admin</Link>
+              <Link to={'/admin-board'} onClick={handleDefault}>Admin</Link>
             </li>
           </ul>
         <Link to={'/forms'} className='btn bt-trans'>Sign In / Register</Link>

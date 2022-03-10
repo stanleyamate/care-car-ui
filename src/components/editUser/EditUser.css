@@ -1,86 +1,76 @@
-.forms{
-    width: 100%;
-    background: url('../../assets/images/reg.png') no-repeat;
-    background-size: contain;
-    background-position: 50%;
-}
-
-.forms .container{
+.edit-user-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.forms legend{
-    
+.update-form h2{
     text-align: center;
-    font-size: 1.3em;
 }
-.forms form{
+.edit-user-container .update-form{
     padding-top:3em;
-    background: rgba(191, 191, 241, 0.699);
     width: 100%;
 }
-.forms form div{
-    margin: 1em ; 
+.update-form div{
+    margin: 1em;
 }
-.forms form #form-dropdown{
+.update-form #form-dropdown{
     width: 100%;
     display: flex;
     justify-content:center;
     margin: 0;
 }
-.forms form #form-dropdown select{
+.update-form #form-dropdown select{
     font-size:1em;
     padding: .2em 0;
     /* border: 1px solid grey; */
 }
-.forms form input{
+.update-form input{
     width: 100%;
     padding: .5em 0;
     border: none;
     border-bottom: 1px solid rgba(152, 149, 223, 0.527);
     font-size:1em;
     outline: none;
-    background: transparent;
+    transition: .2s;
 }
-/* .forms form input::before{
+/* .update-form input::before{
     content: '';
     border: none;
     border-radius: 4px;
 } */
-.forms form input:focus{
+
+.update-form input:focus{
     border-bottom: 1px solid rgb(117, 113, 228);
     background: rgba(117, 113, 228, 0.151);
+
 }
-.forms form div:last-child{
+.update-form div:last-child{
     display: flex;
 }
-.forms .container .btn{
+.edit-user-container .btn{
    margin: 0 auto;
 }
 
 @media screen and (min-width:600px) {
     
-    .forms form{
-        width: 90%;
-        padding: 3em 2em;
+    .update-form {
+        width: 500px;
         border-radius: 10px;
     }
-    .forms form input{
+    .update-form input{
         width: 100%;
     }
     
 }
 @media screen and (min-width:700px) {
-    .forms form {
-        width: 90%;
+    .update-form {
         margin: 0 auto;
     } 
     
 }
 @media screen and (min-width:800px) {
-    .forms form {
-        width: 40%;
+    .update-form {
+        padding: 0 20%;
     }
     .forms .container{
         flex-direction: row;

@@ -1,0 +1,43 @@
+.update-service{
+    width: 100%;
+}
+.update-service-con{
+    width: 100%;
+    padding:0 1em;
+    
+}
+.update-service-con form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 10vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+.update-service-con div{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2em 0;
+}
+.update-service-con input{
+    font-size: 1.3em;
+    padding: .2em 4.6em;
+    margin: .5em 0;
+}
+@media screen and (min-width:600px){
+    .update-service div{
+        flex-direction: row;
+        justify-content: center;
+        align-items:center;
+        margin-top: 1em;
+    }
+    .update-service-con input{
+        margin-right: .3em;
+    }
+}
+@media screen and (min-width:700px){
+    
+}

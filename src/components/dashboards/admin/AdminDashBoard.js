@@ -1,11 +1,56 @@
-import React from 'react'
+import React,{ useState} from 'react'
 import './AdminDashBoard.css'
 import { Link } from 'react-router-dom'
 import Hero from '../../../assets/images/hero.jpg'
+// import axios from 'axios'
 
-export const AdminDashBoard = () => {
+const AdminDashBoard = ({users, services}) => {
+
+  const [service, setService] = useState('');
+ const handleServiceSubmit=(e)=>{
+    e.preventDefault()
+}
+
+  const usersList=users.length?(
+    users.map(user=>{
+        return(
+          <li className="user" key={user._id}>
+             <div className='username'>{user.username}</div>
+          <div className='email'>{ user.email }</div>
+          <div className='status'>{ user.plan }</div>
+            <Link to={'/users'} className='btn btn-green'>
+              Manage
+            </Link>
+        </li>
+       
+        )
+    }).slice(0,6)
+  ):(
+    <div className='message'>
+      <h4>No Users yet...</h4>
+    </div>
+  )
+  const serviceList=services.length?(
+    services.map(service=>{
+        return(
+          <li className="service" key={service._id}>
+                    <div>
+                    { service.service}
+                    </div>
+                 <Link className='btn btn-green'>
+                        Manage
+                </Link>
+          </li>
+        )
+    }).slice(0,6)
+  ):(
+    <div className='message'>
+      <h4>No Services yet...</h4>
+    </div>
+  )
+
   return (
-    <div className='admin-dashboard'>
+    <div>
       <div className='admin-container'>
         <aside className='side-bar'>
           <div>
@@ -27,66 +72,26 @@ export const AdminDashBoard = () => {
         </aside>
         <main className='content'>
           <div className='buttons'>
-            <Link to={'/users'} className='btn btn-green'>Manage Service</Link>
+            <Link to={'/service'} className='btn btn-green'>Manage Service</Link>
             <Link to={'/users'} className='btn btn-blue'>All Users</Link>
-            <Link to={'/users'} className='btn'>Log Out</Link>
+            <Link to={'/'} className='btn'>Log Out</Link>
             
           </div>
           <div className='user-list sub-content'>
               <ul >
               <h2>Active Users</h2>
-                  <li className="user">
-                    <div className='username'>
-                    Amate Stanley
-                    </div>
-                    <div className='email'>
-                    blabla@gmail.com</div>
-                    <div className='status'>
-                    subscribed</div>
-                      <Link to={'/users'} className='btn btn-green'>
-                        Manage
-                      </Link>
-                  </li>
-                  <li className="user">
-                    <div className='username'>
-                    Amate Stanley
-                    </div>
-                    <div className='email'>
-                    blabla@gmail.com</div>
-                    <div className='status'>
-                    subscribed</div>
-                      <Link to={'/users'} className='btn btn-green'>
-                        Manage
-                      </Link>
-                  </li>
-                  
+                 {usersList}  
               </ul>
           </div>
           <div className='service-section sub-content'>
             <ul>
                 <h2>Services</h2>
-                  <li className="service">
-                    <div>
-                    Amate Stanley has a big head all day day long 
-                    </div>
-                      <Link className='btn btn-green'>
-                        Manage
-                      </Link>
-                  </li>
-                  <li className="service">
-                    <div>
-                    Amate Stanley has a big head all day day long 
-                    </div>
-                      <Link className='btn btn-green'>
-                        Manage
-                      </Link>
-                  </li>
-                  
+                 {serviceList}
               </ul>
             <div className="service-form">
                 <h4>Add Service</h4>
-                <form>
-                  <input type="text"/>
+                <form onSubmit={handleServiceSubmit}>
+                  <input type="text" value={service} onChange={(e)=> setService(e.target.value)} onBlur={(e)=> setService(e.target.value) }/>
                   <Link className='btn'>Add</Link>
                 </form>
             </div>
@@ -95,5 +100,5 @@ export const AdminDashBoard = () => {
       </div>
     </div>
   )
-}
+  }
 export default AdminDashBoard;

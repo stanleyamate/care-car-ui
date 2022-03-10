@@ -1,0 +1,40 @@
+.not-found{
+}
+.not-found-container{
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0),rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('../../assets/images/cry.jpg');
+    /* background-position: 50% 0; */
+    background-repeat: no-repeat;
+    background-position: 20% ;
+    background-size: contain;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 3em 0;
+    
+}
+
+#not-found{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+#not-found .content{
+    margin-bottom: 1em;
+}
+#not-found h1{
+   font-size: 5em;
+   color: white;
+}
+#not-found h5{
+   color: white;
+}
+@media screen and (min-width:600px) {
+    #not-found h1{
+        font-size: 10em;
+     }
+    #not-found h1,
+    #not-found h5{
+        text-shadow: 0 0 10px rgb(65, 62, 62);
+     }
+}

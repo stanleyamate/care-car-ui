@@ -1,12 +1,11 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom';
-import Hero from "../../assets/images/hero.jpg";
 import Car from '../car/Car';
 import Services from '../service/Services';
-import './Dashboard.css'  
+import './UserDetail.css'  
 
 
-class Dashboard extends Component {
+class UserDetail extends Component {
 
  render(){
   return (
@@ -17,8 +16,7 @@ class Dashboard extends Component {
             <ul>
               <li>
                 <div className='profile'>
-                     <span className='profile-img'><img src={Hero} alt="profile-img" /></span>
-                     <span className='profile-name'>Amate Stanley</span>
+                     <h3 className='prof-name'>Amate Stanley junior</h3>
                  </div>
               </li>
               <div className="details">
@@ -33,7 +31,7 @@ class Dashboard extends Component {
                   <p>Exp Date: DD:MM:YYYY</p>
               </li>
               <li>
-                 <Link className='btn btn-red'>Unsubscribe</Link>
+                 
               </li>
               </div>
             </ul>
@@ -41,10 +39,9 @@ class Dashboard extends Component {
         </aside>
         <main className='content'>
           <div className='buttons'>
-            <Link className='btn btn-green'>Add Car</Link>   
-            <Link className='btn btn-blue'>View Cars</Link>
-            <Link className='btn'>Log Out</Link>
-            
+            <Link to={'/update-user'} className='btn btn-yellow'>Edit User</Link>
+            <Link className='btn btn-red'>Unsubscribe</Link>
+            <Link className='btn btn-red'>Delete User</Link>
           </div>
           <div className='car-list sub-content'>
             <Car />
@@ -60,4 +57,4 @@ class Dashboard extends Component {
  }
 }
 
-export default Dashboard
+export default UserDetail

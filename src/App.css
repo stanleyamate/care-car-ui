@@ -8,8 +8,21 @@ a{
     background: rgb(218, 223, 224);
     border-radius: 2px;
 }
+.message{
+    width: 100%;
+    border-radius:10px;
+    padding: 1em;
+    text-align: center;
+}
+.message h4{
+   margin-bottom: 1.5em;
+}
+
 @media screen and (max-width:600px){
     .mobile-hide{
         display: none;
+    }
+    .message{
+    
     }
 }

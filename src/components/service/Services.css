@@ -29,8 +29,8 @@
     padding-bottom: 1em;
     border-bottom: 1px solid rgb(235, 221, 221);
 }
-/* @media screen and (min-width:750px) {
-    .service-list{
-        width:50%;
+@media screen and (min-width:750px) {
+    .service-con{
+        
     }
-} */
+}

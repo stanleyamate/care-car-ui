@@ -1,0 +1,127 @@
+
+.dashboard-container{
+    display: block;
+
+}
+.dashboard-container .side-bar{
+    width: 100%;
+    display: flex;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1em 0;
+
+}
+.dashboard-container .side-bar .profile{
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    padding:1em;
+}
+.dashboard-container .side-bar .profile,
+.dashboard-container .side-bar .details,
+.dashboard-container .content .buttons{
+    border: 1px solid rgb(228, 220, 220);
+    border-radius: 10px;
+    background-color: white;
+}
+.dashboard-container .side-bar .details{
+    padding: 0 1em 1em 1em;
+    margin-top: 1em;
+    
+}
+
+.dashboard-container .side-bar .prof-name{
+    font-size: 1.4em;
+}
+.dashboard-container .side-bar li {
+    margin-top: 1em;
+}
+.dashboard-container .side-bar div {
+    width: 100%;
+}
+
+.dashboard-container .side-bar #subscribe{
+    color: green;
+}
+.dashboard-container .content{
+    
+}
+.dashboard-container .content .buttons{
+    background-color: beige;
+    padding: 1em;
+    margin: 1em;
+}
+.dashboard-container .content .sub-content{
+    width: 93%;
+    margin: 0 auto 1em auto;
+
+}
+.dashboard-container .content .service-section{
+}
+.dashboard-container .content .buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+@media (min-width:750px) {
+    .dashboard-container{
+        display: flex;
+        padding: 0 2em;
+    
+    }
+    .dashboard-container .side-bar{
+        width: 40%;
+    }
+    .dashboard-container .content{
+        width: 60%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "buttons"
+                               "car" 
+                             "service";
+    }
+    .dashboard-container .content .buttons{
+       grid-area: buttons;
+    }
+    .dashboard-container .content .car-list{
+       grid-area: car;
+    }
+    .dashboard-container .content .service-section{
+        grid-area: service;
+    }
+}
+@media (min-width:950px) {
+    .dashboard-container{
+        display: flex;
+        padding: 0 3em;
+    
+    }
+    .dashboard-container .side-bar{
+        width: 30%;
+    }
+    .dashboard-container .content{
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "buttons buttons"
+                             "car service";
+    }
+    .dashboard-container .content .buttons{
+       grid-area: buttons;
+    }
+    .dashboard-container .content .car-list{
+       grid-area: car;
+    }
+    .dashboard-container .content .service-section{
+        grid-area: service;
+    }
+}
+@media (min-width:1042px) {
+    .dashboard-container{
+        padding: 0 4em;
+    }
+ 
+}

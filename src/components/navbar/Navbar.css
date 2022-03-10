@@ -53,14 +53,14 @@
         flex-direction: column;
         transition: .5s;
         align-items: center;
-        height: 50vh;
-        width: 90%;
+        height: 90vh;
+        width: 60%;
         background: rgba(44, 44, 71, 0.973);
         padding: 1em ;
-        z-index: 2;
+        z-index: 10;
         top: 3.7em;
         right: -100%;
-        padding-bottom: 100px;
+        padding-bottom: 350px;
     }
     .active{
             right: 0 !important;

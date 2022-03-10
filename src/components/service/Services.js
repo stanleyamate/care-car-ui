@@ -1,32 +1,34 @@
-import React from 'react'
+import {useState} from 'react'
 import './Services.css'
- const services=[
-     {description :"modify some changes and apply", id:1},
-     {description :"modify some changes and apply", id:2},
-     {description :"modify some changes and apply", id:3},
-     {description :"modify some changes and apply", id:4},
-     {description :"modify some changes and apply", id:5},
-     {description :"modify some changes and apply", id:6},
-     {description :"modify some changes and apply", id:7},
- ]
+// import axios from '../api/axios'
+
+
 const Services = () => {
-  const serviceList=  services.map(service=>{
+   
+  const [services, setServices]=useState([])
+
+    const serviceList= services.length? (
+      services.map(service=>{
         return(
-            <li key={service.id}>
-             <div className="service">{service.description}</div>
-            </li>
-        )
-    })
-  return (
-    <div>
-        <ul className='service-list'>
-         <div className='service-heading'>
-          <h4>Services</h4>
-         </div>
-           {serviceList}
-        </ul>
-    </div>
-  )
+              <li key={service._id}>
+               <div className="service">{service}</div>
+              </li>
+          )
+      })
+    ):(
+      <div className="message">No service Yet</div>
+    )
+
+    return (
+      <div className='service-con'>
+          <ul className='service-list'>
+           <div className='service-heading'>
+            <h4>Services</h4>
+           </div>
+             {serviceList}
+          </ul>
+      </div>
+    )
 }
 
 export default Services
