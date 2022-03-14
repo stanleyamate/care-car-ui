@@ -6,18 +6,6 @@ import { MdUnsubscribe } from 'react-icons/md'
 // import axios from '../../../api/axios'
 
 const Users = () => {
-{
-   // axios
-   //     .get('/users')
-   //     .then(res=>{
-   //        console.log(res.data.data);
-   //         this.setState({
-   //               users:res.data.data
-   //         })
-   //       });
-         
-
- }
 
       const {users}=this.state;
       const usersList = users.length?(

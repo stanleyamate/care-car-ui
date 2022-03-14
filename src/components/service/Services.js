@@ -4,7 +4,7 @@ import './Services.css'
 
 
 const Services = () => {
-   
+   // eslint-disable-next-line
   const [services, setServices]=useState([])
 
     const serviceList= services.length? (

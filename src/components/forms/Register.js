@@ -1,25 +1,18 @@
-import {useState, useEffect, useContext} from 'react'
-import AuthContext from '../../context/AuthProvider'
-import './Forms.css'
+import React,{useState, useEffect} from 'react'
 import axios from '../api/axios';
-
-//axios Global
-// axios.defaults.headers.common['Authorization'] = localStorage.getItem("token");
-
+import './Forms.css'
 
 const PLANS=["none", "weekly", "monthly"];
 
-const Forms = () => {
-const config={
-      headers:{
-        'Content-Type':'application/json',
-        withCredentials:true
-      }
+const Register = () => {
+
+  const config={
+    headers:{
+      'Content-Type':'application/json',
+      withCredentials:true
     }
+  }
 
-  //Register
-
-  const { setAuth }=useContext(AuthContext);
   const [full_names, setFullnames]=useState("");
   const [username, setUsername]=useState("");
   const [email, setEmail]=useState("");
@@ -27,39 +20,8 @@ const config={
   const [plan, setPlan]=useState("");
   const [errMsg, setErrMsg]=useState("");
 
-  useEffect(()=>{
-    setErrMsg('');
-  }, [username,full_names, password, email, plan])
-
-
-  const handleLogin= async(e)=>{
-    e.preventDefault();
-   try {
-    const response = await axios.post('/login', {
-      username: username,
-      password:password
-    }, config)
-    console.log(response)
-    setUsername('')
-    setPassword('')
-    // const authorizationToken;
-
-    setAuth({username, password});
-   } catch (err) {
-     if(err?.response){
-       setErrMsg('No server response')
-     }
-     else if(err.response?.status === 400){
-       setErrMsg('Missing Username or Password')
-     }else if(err.response?.status === 401){
-         setErrMsg('Unauthorized')
-     }else{
-       setErrMsg('Login failed')
-     }
-     
-   }
- }
- const handleRegister= async(e)=>{
+  
+const handleRegister= async(e)=>{
     e.preventDefault();
     
     try {
@@ -84,23 +46,17 @@ const config={
       }
     }
  }
-    return (
+
+  useEffect(()=>{
+    setErrMsg('');
+  }, [username,full_names, password, email, plan])
+
+
+
+  return (
+    <>
         <div className='forms'>
             <div className='container'>
-                <form className='Login-form' onSubmit={handleLogin}>
-                    <legend>Login</legend>
-                   <div>
-                     <label htmlFor='Username'>Username:</label>
-                     <input type='text' onChange={(e)=>setUsername(e.target.value)} value={username} autoComplete="off" required />
-                   </div>
-                   <div>
-                     <label htmlFor='Password'>Password:</label>
-                     <input type='password' onChange={(e)=>setPassword(e.target.value)} value={password} required />
-                   </div>
-                    <div>
-                     <button className='btn'>Login</button>
-                    </div>
-                </form>
                 <form className='register-form' onSubmit={handleRegister}>
                     <legend>Register</legend>
                    <div>
@@ -147,7 +103,8 @@ const config={
                 </form>
             </div>
         </div>
-      )
+    </>
+  )
 }
 
-export default Forms
+export default Register

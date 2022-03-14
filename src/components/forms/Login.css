@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 1em;
 }
 .forms legend{
     
@@ -17,18 +16,12 @@
     font-size: 1.3em;
 }
 .forms form{
-    border-radius: 10px;
-    margin: 2em 0;
-    padding:3em 0;
-    background: rgba(200, 200, 255, 0.699);
+    padding-top:3em;
+    background: rgba(191, 191, 241, 0.699);
     width: 100%;
 }
 .forms form div{
     margin: 1em ; 
-}
-.forms .container .form-footer{
-    display: block;
-    text-align: center;
 }
 .forms form #form-dropdown{
     width: 100%;

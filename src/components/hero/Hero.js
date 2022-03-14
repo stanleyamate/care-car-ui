@@ -9,7 +9,7 @@ import {MdEventAvailable} from 'react-icons/md';
 
 const Hero = () => {
   return (
-     <div>
+     <>
         <div className='hero'>
           <div className='caption'>
               <h1>Auto-Care</h1>
@@ -78,7 +78,7 @@ const Hero = () => {
          </div>
        </section>
     </main>
-     </div>
+     </>
   )
 }
 

@@ -1,14 +1,34 @@
-import React,{ useState} from 'react'
+import React,{ useState, useEffect, useContext} from 'react'
 import './AdminDashBoard.css'
 import { Link } from 'react-router-dom'
 import Hero from '../../../assets/images/hero.jpg'
-// import axios from 'axios'
+import axios from './api/axios'
+import serviceContext from '../../../context/service.Context/service-context'
+
+
 
 const AdminDashBoard = ({users, services}) => {
 
-  const [service, setService] = useState('');
- const handleServiceSubmit=(e)=>{
+
+ const [service, setService] = useState('');
+ const { addService }=useContext(serviceContext);
+
+ const handleServiceSubmit= async(e)=>{
     e.preventDefault()
+    try {
+      const response= await axios
+      .post('/services',{
+        headers:'Content-Type:Application/json',
+         withCredential:true})
+         console.log(response)
+    } catch (err) {
+      console.log(err)
+    }
+    const newService={
+      service
+    }
+    // addService(newService)
+    // setService('')
 }
 
   const usersList=users.length?(
@@ -37,7 +57,7 @@ const AdminDashBoard = ({users, services}) => {
                     <div>
                     { service.service}
                     </div>
-                 <Link className='btn btn-green'>
+                 <Link to={'/'} className='btn btn-green'>
                         Manage
                 </Link>
           </li>
@@ -92,7 +112,7 @@ const AdminDashBoard = ({users, services}) => {
                 <h4>Add Service</h4>
                 <form onSubmit={handleServiceSubmit}>
                   <input type="text" value={service} onChange={(e)=> setService(e.target.value)} onBlur={(e)=> setService(e.target.value) }/>
-                  <Link className='btn'>Add</Link>
+                  <button className='btn'>Add</button>
                 </form>
             </div>
           </div>
