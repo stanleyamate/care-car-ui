@@ -8,6 +8,7 @@ const Navbar = () => {
    const handleClick = () =>setClick(!click)
    const handleDefault=()=> setClick(false)
   return (
+    <>
     <div className='navbar'>
       <div className='nav-container'>
           <img className='logo' src={Logo} alt='logo'/>
@@ -25,7 +26,8 @@ const Navbar = () => {
               <Link to={'/admin-board'} onClick={handleDefault}>Admin</Link>
             </li>
           </ul>
-        <Link to={'/forms'} className='btn bt-trans'>Sign In / Register</Link>
+        <Link to={'/login'} className='btn bt-trans'>Sign In / Register</Link>
+        
         <div className='hamburger' onClick={handleClick}>
             <div></div>
             <div></div>
@@ -33,6 +35,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

@@ -1,15 +1,13 @@
-import { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Hero from "../../assets/images/hero.jpg";
 import Car from '../car/Car';
 import Services from '../service/Services';
 import './Dashboard.css'  
 
+const Dashboard = ()=> {
 
-class Dashboard extends Component {
-
- render(){
   return (
+
     <div className='user-dashboard'>
       <div className='dashboard-container'>
         <aside className='side-bar'>
@@ -33,7 +31,7 @@ class Dashboard extends Component {
                   <p>Exp Date: DD:MM:YYYY</p>
               </li>
               <li>
-                 <Link className='btn btn-red'>Unsubscribe</Link>
+                 <Link to={'/'} className='btn btn-red'>Unsubscribe</Link>
               </li>
               </div>
             </ul>
@@ -41,9 +39,9 @@ class Dashboard extends Component {
         </aside>
         <main className='content'>
           <div className='buttons'>
-            <Link className='btn btn-green'>Add Car</Link>   
-            <Link className='btn btn-blue'>View Cars</Link>
-            <Link className='btn'>Log Out</Link>
+            <Link to={'/'} className='btn btn-green'>Add Car</Link>   
+            <Link to={'/'} className='btn btn-blue'>View Cars</Link>
+            <Link to={'/'} className='btn'>Log Out</Link>
             
           </div>
           <div className='car-list sub-content'>
@@ -57,7 +55,6 @@ class Dashboard extends Component {
       </div>
     </div>
   )
- }
 }
 
 export default Dashboard
