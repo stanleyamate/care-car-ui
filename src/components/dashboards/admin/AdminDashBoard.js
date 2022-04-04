@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 import Hero from '../../../assets/images/hero.jpg'
 import axios from '../../api/axios'
 import serviceContext from '../../../context/service.Context/service-context'
-
+import useAuth from '../../../hooks/useAuth'
 
 
 const AdminDashBoard = ({users, services}) => {
-
+  const { auth }=useAuth();
 
  const [service, setService] = useState('');
- const { addService }=useContext(serviceContext);
+//  const { addService }=useContext(serviceContext);
 
  const handleServiceSubmit= async(e)=>{
     e.preventDefault()
@@ -31,7 +31,7 @@ const AdminDashBoard = ({users, services}) => {
     // setService('')
 }
 
-  const usersList=users.length?(
+  const usersList=users?(
     users.map(user=>{
         return(
           <li className="user" key={user._id}>
@@ -50,7 +50,7 @@ const AdminDashBoard = ({users, services}) => {
       <h4>No Users yet...</h4>
     </div>
   )
-  const serviceList=services.length?(
+  const serviceList=services?(
     services.map(service=>{
         return(
           <li className="service" key={service._id}>
@@ -78,14 +78,14 @@ const AdminDashBoard = ({users, services}) => {
               <li>
                 <div className='profile'>
                      <span className='profile-img'><img src={Hero} alt="profile-img" /></span>
-                     <span className='profile-name'>Amate Stanley</span>
+                     <span className='profile-name'>{auth.username}</span>
                  </div>
               </li>
               <div className="details">
               <li>
-                <p>Email: amatestanley@08gmail.com</p>
+                <p>Email: {auth.email}</p>
               </li>
-              <li><p>Role: Admin</p></li>
+              <li><p>Role: {auth.role}</p></li>
               </div>
             </ul>
           </div>

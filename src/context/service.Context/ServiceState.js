@@ -1,4 +1,5 @@
 import React,{ useReducer }from 'react'
+import axios from '../../components/api/axios'
 import ServiceContext from './service-context'  
 import { ADD_SERVICE, DELETE_SERVICE, GET_SERVICES } from './serviceActions'
 import serviceReducer from './serviceReducer'
@@ -7,9 +8,11 @@ const ServiceState = (props) => {
   const initialState={
     services:[]
   }
-  const [state, dispatch]=useReducer(serviceReducer, initialState)
+  const [state, dispatch] = useReducer(serviceReducer, initialState)
   //add service
-  const addService = (service)=>{
+  const addService =async (service)=>{
+      await axios.post('/services',
+      {})
       dispatch({
         type:ADD_SERVICE,
         payload: service

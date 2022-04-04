@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Routes} from "react-router-dom";
 import './App.css';
 import axios from './components/api/axios'
@@ -17,17 +17,27 @@ import NotFound from "./components/not-found/NotFound";
 import RequireAuth from './components/RequireAuth';
 
 const App =()=>{
-//   const [services, updateServices]= useState("");
-//   const [users, updateUsers]= useState("");
-//  const getUsersAndServices = async()=>{
-//     const res = await axios.all(
+//   const [services, updateServices]= useState([]);
+//   const [users, updateUsers]= useState([]);
+
+//  useEffect(()=>{
+//   const getUsersAndServices = async()=>{
+//     await axios.all(
 //        [
 //          axios.get('/users'),
 //          axios.get('/service')
 //       ]
-//      )
+//      ).then(res=>{
+     
+//      updateUsers(res.data[0])
+//      updateServices(res.data[1])
+//      })
+
 //     .catch(err=>console.log(err))
 //    }
+//    getUsersAndServices()
+//  },[]
+//  )
  
 
 

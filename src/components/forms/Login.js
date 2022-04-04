@@ -42,21 +42,21 @@ const Login = () => {
       email:email,
       password:password
     }, config)
-    const {user} = res.data;
-    const newUser={
-      full_names:user.full_names,
-      username:user.username,
-      email: user.email,
-      password: user.password,
-      roles:user.role,
-      token: user.token
-    }
-    setAuth(newUser); 
+    const user = res.data.user;
+    // const newUser={
+    //   full_names:user.full_names,
+    //   username:user.username,
+    //   email: user.email,
+    //   password: user.password,
+    //   roles:user.role,
+    //   token: user.token
+    // }
+    setAuth(user); 
+    console.log(auth.role);
     setEmail('')
     setPassword('')
     navigate(from, {replace:true})
-    console.log(auth.role)
-    
+  
 
    } catch (err) {
      if(err?.response){

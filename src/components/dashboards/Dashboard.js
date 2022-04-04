@@ -3,8 +3,11 @@ import Hero from "../../assets/images/hero.jpg";
 import Car from '../car/Car';
 import Services from '../service/Services';
 import './Dashboard.css'  
+import useAuth from '../../hooks/useAuth';
 
 const Dashboard = ()=> {
+  const { auth }=useAuth();
+
 
   return (
 
@@ -16,19 +19,19 @@ const Dashboard = ()=> {
               <li>
                 <div className='profile'>
                      <span className='profile-img'><img src={Hero} alt="profile-img" /></span>
-                     <span className='profile-name'>Amate Stanley</span>
+                     <span className='profile-name'>{auth.username}</span>
                  </div>
               </li>
               <div className="details">
               <li>
-                <p>Email: amatestanley@08gmail.com</p>
+                <p>Email: {auth.email}</p>
               </li>
-              <li><p>Role: User</p></li>
+              <li><p>Role:{auth.role}</p></li>
               <li>
-                <p>Status: <strong id='subscribe'>Subscribed</strong></p>
+                <p>Status: <strong id='subscribe'>{auth.isActive ? 'Active' : 'not Active'}</strong></p>
               </li>
               <li>
-                  <p>Exp Date: DD:MM:YYYY</p>
+                  <p>Date Joined: {Date(auth.createdAt).substring(0, 15)}</p>
               </li>
               <li>
                  <Link to={'/'} className='btn btn-red'>Unsubscribe</Link>

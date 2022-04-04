@@ -25,18 +25,17 @@ const Register = () => {
   
 const handleRegister= async(e)=>{
     e.preventDefault();
-    
     try {
       const response = await axios
       .post('/register', {
         full_names: full_names,
         username: username,
         email:email,
-        roles:role,
+        role:role,
         password:password,
         plan:plan
       }, config)
-       console.log(response)
+       console.log(response.data)
        
     } catch (err) {
       if(!err?.response){
@@ -82,27 +81,27 @@ const handleRegister= async(e)=>{
                    <div>
                      <label htmlFor='Plan'>Plan:</label>
                      <select id="plan" value={plan} required onChange={(e)=> setPlan(e.target.value)} onBlur={(e)=> setPlan(e.target.value)}>
-                      <option />
-                     {
+                      
+                      {
                        PLANS.map(plan =>(
                        <option value={plan} key={plan}
                        >{plan}
                        </option>
-                      ))
-                     }
+                       ))
+                      } 
                    </select>
                    </div>
                    <div>
                      <label htmlFor='role'>Role:</label>
                      <select id="role" value={role} required onChange={(e)=> setRole(e.target.value)} onBlur={(e)=> setRole(e.target.value)}>
-                      <option />
-                     {
+                      
+                      {
                        ROLES.map(role =>(
                        <option value={role} key={role}
                        >{role}
                        </option>
-                      ))
-                     }
+                       ))
+                      } 
                    </select>
                    </div>
                    </div>
