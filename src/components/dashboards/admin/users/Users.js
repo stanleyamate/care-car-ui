@@ -1,13 +1,16 @@
-// import {Component} from 'react'
+import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import './Users.css'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import { MdUnsubscribe } from 'react-icons/md'
-// import axios from '../../../api/axios'
+import { BiDetail } from 'react-icons/bi'
+import { UserContext } from '../../../../context/user.Context/UserContext'
+import useAuth from '../../../../hooks/useAuth'
 
 const Users = () => {
-
-      const {users}=this.state;
+   const { users, deleteUser } = useContext(UserContext)
+   // const {auth}= useAuth();
+      
       const usersList = users.length?(
          users.map(user=>{
             return(
@@ -16,16 +19,22 @@ const Users = () => {
                               <div className='email mobile-hide'>{ user.email}</div>
                               <div className=''> {user.plan}</div>
                         <div className='manage-buttons'>
-                           <span className='icon-con'>
-                                <AiFillEdit className="icon" onMouseOver={({target})=>target.style.color="blue"}
-                                onMouseOut={({target})=>target.style.color=""}/>
-                            </span>
-                            <span className='icon-con'>
-                                <AiFillDelete className="icon"/>
-                            </span>
-                            <span className='icon-con'>
-                                <MdUnsubscribe className="icon"/>
-                            </span>
+                                 <span className='icon-con'>
+                                    <Link to={`/user-detail/${user._id}`}>
+                                       <BiDetail className="icon"/>
+                                    </Link>
+                                 </span>
+                                 <span className='icon-con'>
+                                    <Link to={`/update-user/${user._id}`}>
+                                       <AiFillEdit className="icon" />
+                                    </Link>
+                                 </span>
+                                 <span className='icon-con'>
+                                    <AiFillDelete className="icon" onClick={()=>{deleteUser(user._id)}}/>
+                                 </span>
+                                 <span className='icon-con'>
+                                    <MdUnsubscribe className="icon"/>
+                                 </span>
                         </div>   
                   </li>
             )

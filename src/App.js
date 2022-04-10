@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Route, Routes} from "react-router-dom";
 import './App.css';
-import axios from './components/api/axios'
+// import axios from 'axios'
 import Layout from './components/layout/Layout';
 import Hero from './components/hero/Hero';
 import Login from './components/forms/Login';
@@ -17,29 +17,8 @@ import NotFound from "./components/not-found/NotFound";
 import RequireAuth from './components/RequireAuth';
 
 const App =()=>{
-//   const [services, updateServices]= useState([]);
-//   const [users, updateUsers]= useState([]);
 
-//  useEffect(()=>{
-//   const getUsersAndServices = async()=>{
-//     await axios.all(
-//        [
-//          axios.get('/users'),
-//          axios.get('/service')
-//       ]
-//      ).then(res=>{
-     
-//      updateUsers(res.data[0])
-//      updateServices(res.data[1])
-//      })
-
-//     .catch(err=>console.log(err))
-//    }
-//    getUsersAndServices()
-//  },[]
-//  )
  
-
 
   return (
           <>  
@@ -51,20 +30,22 @@ const App =()=>{
 
                    <Route path="register" element={<Register/>} />
 
-                   <Route  path="service" element={<Services/>}  />
+                   <Route   path="service" element={<Services />}  />
             
 
                  {/* admin Routes */}
                    <Route element={<RequireAuth allowedRoles={"user"}/>}>
-                        <Route  path="user-dashboard" element={<Dashboard/>} /> 
+                        <Route  path="user-dashboard" element={<Dashboard />} /> 
                     </Route>    
+                    
+                         <Route  path="user-detail/:id" element={<UserDetail/>}/>
+                       
 
                     <Route element={<RequireAuth allowedRoles={"admin"}/>}>
                         <Route  path="admin-board" element={<AdminDashBoard />} />
-                         <Route  path="users" element={<Users />} />
-                         <Route  path="update-service" element={<UpdateService/>} />
-                         <Route  path="user-detail" element={<UserDetail/>}/>
-                         <Route  path="update-user" element={<EditUser/>} />
+                         <Route  path="users"  element={<Users />} />
+                         <Route  path="update-service/:id" element={<UpdateService/>} />
+                         <Route  path="update-user/:id" element={<EditUser/>} />
                      </Route>
   
                    <Route path="*" element={<NotFound />} />

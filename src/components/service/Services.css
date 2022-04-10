@@ -1,6 +1,20 @@
+.service-con{
+    max-width: 600px;
+    margin: 0 auto;
+
+}
+.service{
+    display: flex;
+    width: 100%;
+}
+.service div:first-child{
+    margin-right: auto;
+    margin-left: 10%;
+}
 .service-list{
     --radius: 15px;
     padding-bottom: 2em;
+    background: #fff;
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -29,8 +43,9 @@
     padding-bottom: 1em;
     border-bottom: 1px solid rgb(235, 221, 221);
 }
-@media screen and (min-width:750px) {
-    .service-con{
-        
+@media screen and (max-width:750px) {
+    .service div:first-child{
+        margin-right: auto;
+        margin-left: .2em;
     }
 }

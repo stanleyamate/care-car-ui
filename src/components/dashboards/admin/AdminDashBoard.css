@@ -28,28 +28,31 @@
 .admin-container .side-bar .details{
     padding: 0 1em 1em 1em;
     margin-top: 1em;
-    
 }
 
 .admin-container .side-bar .profile-name{
     margin-left: 1em;
     font-size: 1.4em;
-    
+    text-transform: capitalize;
 }
 
 .admin-container .side-bar li {
     margin-top: 1em;
+
+}
+.admin-container .side-bar li:last-child p {
+    text-transform: capitalize;
 }
 .admin-container .side-bar div {
     width: 100%;
 }
-img[alt="profile-img"]{
+/* img[alt="profile-img"]{
     height: 50px;
     border-radius: 50%;
     width: 50px;
     border: 2px solid rgb(132, 130, 247);
     padding: .11em;
-}
+} */
 .admin-container .side-bar #subscribe{
     color: green;
 }
@@ -84,6 +87,7 @@ img[alt="profile-img"]{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1em 0;
 }
 .admin-container .content .service-section .service-form{
     border-radius: 10px;
@@ -101,15 +105,16 @@ img[alt="profile-img"]{
    font-size: 1.2em;
    border: 1px solid rgb(164, 164, 231);
    width: 80%;
-   padding: .4em 0;
-   border-radius: 10px;
+   outline: none;
+   padding: .3em .1em;
+   border-radius: 5px;
 }
 .admin-container .content .user:not(.content .user:last-child),
 .admin-container .content .service:not(.content .service:last-child)
 {
     margin-bottom: .5em;
     padding-bottom: .5em;
-    border-bottom: 1px solid rgb(230, 218, 218);
+    border-bottom: 1px solid rgb(238, 232, 232);
 }
 .admin-container .content .buttons{
     display: flex;

@@ -1,13 +1,19 @@
 import { Link} from 'react-router-dom';
-import Hero from "../../assets/images/hero.jpg";
 import Car from '../car/Car';
 import Services from '../service/Services';
 import './Dashboard.css'  
 import useAuth from '../../hooks/useAuth';
 
-const Dashboard = ()=> {
+const Dashboard = ({services})=> {
   const { auth }=useAuth();
-
+  // const [carImg, setCarImg]= useState()
+  // useEffect(()=>{
+  //   axios.get(`/${auth.image}`)
+  //   .then(res=>{
+  //     setCarImg(res)
+  //   }
+  //   ).catch(err=>console.log(err))
+  // },[auth])
 
   return (
 
@@ -18,7 +24,7 @@ const Dashboard = ()=> {
             <ul>
               <li>
                 <div className='profile'>
-                     <span className='profile-img'><img src={Hero} alt="profile-img" /></span>
+                     <span className='profile-img'><img src={`http://localhost:4000/${auth.image}`} alt="profile-img" /></span>
                      <span className='profile-name'>{auth.username}</span>
                  </div>
               </li>
@@ -33,9 +39,6 @@ const Dashboard = ()=> {
               <li>
                   <p>Date Joined: {Date(auth.createdAt).substring(0, 15)}</p>
               </li>
-              <li>
-                 <Link to={'/'} className='btn btn-red'>Unsubscribe</Link>
-              </li>
               </div>
             </ul>
           </div>
@@ -43,15 +46,15 @@ const Dashboard = ()=> {
         <main className='content'>
           <div className='buttons'>
             <Link to={'/'} className='btn btn-green'>Add Car</Link>   
-            <Link to={'/'} className='btn btn-blue'>View Cars</Link>
+                 <Link to={'/'} className='btn btn-red'>Unsubscribe</Link>
             <Link to={'/'} className='btn'>Log Out</Link>
             
           </div>
           <div className='car-list sub-content'>
-            <Car />
+            <Car/>
           </div>
           <div className='service-section sub-content'>
-            <Services />
+            <Services services={services}/>
           </div>
           
         </main>

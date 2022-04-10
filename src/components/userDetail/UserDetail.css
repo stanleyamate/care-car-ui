@@ -44,6 +44,9 @@
 .dashboard-container .side-bar #subscribe{
     color: green;
 }
+.dashboard-container .side-bar #unsubscribe{
+    color: rgb(240, 105, 105);
+}
 .dashboard-container .content{
     
 }

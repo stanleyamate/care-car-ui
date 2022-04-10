@@ -1,22 +1,26 @@
 import React from 'react'
 import './Car.css'
-import Cars2 from '../../assets/images/car2.png'
 import useAuth from '../../hooks/useAuth'
 
-const Car = () => {
-  const { auth }=useAuth();
+const Car = ({person}) => {
+  const { auth } = useAuth();
 
+//   person.image?`http://localhost:4000/${person.image}`:`http://localhost:4000/${auth.image}`
   return (
+
     <div className='car-section'>
         <div className='car-container'>
             <h1>Car details</h1>
             <div className='card'>
                 <div className='card-body'>
                    <div className='card-img'>
-                       <img src={Cars2} alt='' />
+                       <img src={person?
+                           `http://localhost:4000/${person.image}`:
+                           `http://localhost:4000/${auth.image}`
+                           } alt='user-car' />
                    </div>
                    <div className='card-details'>
-                       <h3>Car - model</h3>
+                       <h3>{auth.car_model}</h3>
                        <p>Subscription Plan: {auth.plan}</p>
                    </div>
                 </div>

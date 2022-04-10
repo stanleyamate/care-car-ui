@@ -3,6 +3,7 @@ import { useNavigate, Link, useLocation } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 import './Login.css'
 import axios from '../api/axios';
+import { testLog } from '../../utils';
 const LOGIN_URL = '/login'
 
 //axios Global
@@ -13,15 +14,9 @@ const LOGIN_URL = '/login'
 
 const Login = () => {
   
-  const config={
-      headers:{
-        'Content-Type':'application/json'},
-        withCredentials:true
-      
-    }
 
     //login
-  const { auth, setAuth }=useAuth();
+  const { setAuth, setIsLogged } = useAuth();
   const navigate = useNavigate();
   const location =useLocation();
   const from = location.state?.from?.pathname || '/'
@@ -29,10 +24,6 @@ const Login = () => {
 
   const [email, setEmail]=useState("");
   const [password, setPassword]=useState("");
-  // const [full_names, setFullnames]=useState("");
-  // const [username, setUsername]=useState("");
-  // const [role, setRole]=useState("");
-  // const [token, setToken]=useState("");
   const [errMsg, setErrMsg]=useState("");
 
   const handleLogin= async(e)=>{
@@ -41,23 +32,14 @@ const Login = () => {
     const res = await axios.post(LOGIN_URL, {
       email:email,
       password:password
-    }, config)
+    })
     const user = res.data.user;
-    // const newUser={
-    //   full_names:user.full_names,
-    //   username:user.username,
-    //   email: user.email,
-    //   password: user.password,
-    //   roles:user.role,
-    //   token: user.token
-    // }
-    setAuth(user); 
-    console.log(auth.role);
+    localStorage.setItem("token", res.data.token)
+    setAuth(user);
+    setIsLogged(true)
     setEmail('')
     setPassword('')
-    navigate(from, {replace:true})
-  
-
+    navigate(from, {replace:true})  
    } catch (err) {
      if(err?.response){
        setErrMsg('No server response')
@@ -69,19 +51,19 @@ const Login = () => {
      }else{
        setErrMsg('Login failed')
      }
-     
+
    }
  }
  
 useEffect(()=>{
 
-  let isLogin=false;  
+   
 
   const controller = new AbortController();
   const signal = controller.signal;
 
   return()=>{
-    isLogin=false;
+    
     controller.abort()
   }
 },[])

@@ -1,13 +1,29 @@
-import { Component } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useContext, useState } from 'react'
+import { Link, useParams,useNavigate} from 'react-router-dom';
+import { UserContext } from '../../context/user.Context/UserContext';
 import Car from '../car/Car';
 import Services from '../service/Services';
 import './UserDetail.css'  
 
+const UserDetail = () => {
+  const [p, setP]=useState(false)
+  const {users, deleteUser} = useContext(UserContext)
+  const { id }=  useParams();
+  const navigate=useNavigate();
+  const user = users.find(user=>(user._id).toString() === id)
+  const [person, setPerson]=useState([])
+  useEffect(()=>{
+    setPerson(user)
+  },[person, user])
+  const deleteUserHandler=(e)=>{
+    e.preventDefault()
+     try {
+      deleteUser(user._id)
+    } catch (error) {
+      console.log(error)
+    }
 
-class UserDetail extends Component {
-
- render(){
+   }
   return (
     <div className='user-dashboard'>
       <div className='dashboard-container'>
@@ -16,19 +32,22 @@ class UserDetail extends Component {
             <ul>
               <li>
                 <div className='profile'>
-                     <h3 className='prof-name'>Amate Stanley junior</h3>
+                     <h3 className='prof-name'>{person.full_names}</h3>
                  </div>
               </li>
               <div className="details">
               <li>
-                <p>Email: amatestanley@08gmail.com</p>
+                <p>Email: {person.email}</p>
               </li>
-              <li><p>Role: User</p></li>
+              <li><p>Role: {person.role}</p></li>
               <li>
-                <p>Status: <strong id='subscribe'>Subscribed</strong></p>
+              { person.isActive?
+                <p>Status: <strong id='subscribe'>Subscribed</strong></p>:
+                <p>Status: <strong id='unsubscribe'>UnSubscribed</strong></p>
+                }
               </li>
               <li>
-                  <p>Exp Date: DD:MM:YYYY</p>
+                  <p></p>
               </li>
               <li>
                  
@@ -39,12 +58,15 @@ class UserDetail extends Component {
         </aside>
         <main className='content'>
           <div className='buttons'>
-            <Link to={'/update-user'} className='btn btn-yellow'>Edit User</Link>
-            <Link className='btn btn-red'>Unsubscribe</Link>
-            <Link className='btn btn-red'>Delete User</Link>
+            <Link to={`/update-user/${user._id}`}className='btn btn-yellow'>Edit User</Link>
+          { 
+          p?<Link to={'/unsubscribe'} className='btn btn-red'>Unsubscribe</Link>
+          :<Link to={'/subscribe'} className='btn btn-green'>subscribe</Link>}
+      
+            <Link to={'/update-user'} className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </Link>
           </div>
           <div className='car-list sub-content'>
-            <Car />
+            <Car person={person}/>
           </div>
           <div className='service-section sub-content'>
             <Services />
@@ -54,7 +76,7 @@ class UserDetail extends Component {
       </div>
     </div>
   )
- }
 }
+
 
 export default UserDetail

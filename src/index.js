@@ -6,18 +6,21 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 // import AppState from './context/app.Context/AppState';
 import { AuthProvider } from './context/AuthProvider'
-import ServiceState from './context/service.Context/ServiceState'
+import ServiceContextProvider from './context/service.Context/ServiceContext';
+import UserContextProvider from './context/user.Context/UserContext';
 
 ReactDOM.render(
   <React.StrictMode>
-        <Router>  
-         <ServiceState>   
-          <AuthProvider>
-           <Routes>
-            <Route path="/*" element={<App />}/>
-           </Routes>
-          </AuthProvider>
-         </ServiceState> 
+        <Router> 
+          <UserContextProvider>
+            <ServiceContextProvider>   
+              <AuthProvider>
+               <Routes>
+                 <Route path="/*" element={<App />}/>
+               </Routes>
+              </AuthProvider>
+            </ServiceContextProvider> 
+          </UserContextProvider> 
         </Router>
   </React.StrictMode>,
   document.getElementById('root')
