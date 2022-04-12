@@ -1,25 +1,27 @@
 import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
-import './Users.css'
+import './UsersTable.css'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import { MdUnsubscribe } from 'react-icons/md'
 import { BiDetail } from 'react-icons/bi'
 import { UserContext } from '../../../../context/user.Context/UserContext'
-import useAuth from '../../../../hooks/useAuth'
+import useAuth from '../../../../hooks/useAuth' 
 
-const Users = () => {
+const UsersTable = () => {
    const { users, deleteUser } = useContext(UserContext)
-   // const {auth}= useAuth();
       
       const usersList = users.length?(
          users.map(user=>{
             return(
-               <li className='user' key={user._id}>
-                  <div className='username'>{ user.username }</div>
-                              <div className='email mobile-hide'>{ user.email}</div>
-                              <div className=''> {user.plan}</div>
-                              <div className=''><img src={`http://localhost:4000/${user.image}`} height="20px" alt="car-img"  /></div>
-                        <div className='manage-buttons'>
+               <tr key={user._id}>
+                        <td>{ user.username }</td>
+                        <td className='tablet'>{ user.email }</td>
+                        <td className='tablet'>{ user.plan}</td>
+                        <td className='tablet'>
+                           <img src={`http://localhost:4000/${user.image}`} alt="car" height="50px" />
+                        </td>
+                        <td>
+                           <div className='manage-buttons'>
                                  <span className='icon-con'>
                                     <Link to={`/user-detail/${user._id}`}>
                                        <BiDetail className="icon"/>
@@ -31,13 +33,14 @@ const Users = () => {
                                     </Link>
                                  </span>
                                  <span className='icon-con'>
-                                    <AiFillDelete className="icon" onClick={()=>{deleteUser(user._id)}}/>
+                                    <AiFillDelete className="icon"/>
                                  </span>
                                  <span className='icon-con'>
                                     <MdUnsubscribe className="icon"/>
                                  </span>
-                        </div>   
-                  </li>
+                           </div>  
+                        </td>
+                     </tr>
             )
          })
       ):(
@@ -49,14 +52,25 @@ const Users = () => {
        
       return (
            <div className='all-users-container'>
-              <ul className='all-users'>
+              <div className='all-users'>
                   <h2>All Active Users</h2>
                   <small>Total:{users.length}</small>            
-                      {usersList}
-              </ul>
+                  <table>
+                     <thead>
+                        <th>Username</th>
+                        <th className='tablet'>Email</th>
+                        <th className='tablet'>Plan</th>
+                        <th className='tablet'>Car Image</th>
+                        <th>Manage</th>
+                     </thead>
+                     <tbody>
+                        {usersList}    
+                     </tbody>
+                  </table>
+              </div>
            </div>
       )
   
 }
 
-export default Users
+export default UsersTable

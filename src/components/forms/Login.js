@@ -34,7 +34,7 @@ const Login = () => {
       password:password
     })
     const user = res.data.user;
-    localStorage.setItem("token", res.data.token)
+    localStorage.setItem("token", res.data.user.token)
     setAuth(user);
     setIsLogged(true)
     setEmail('')

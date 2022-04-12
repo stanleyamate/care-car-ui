@@ -9,6 +9,7 @@ export const UserContext= createContext();
 
 const UserContextProvider = (props) =>{
     const [users, setUsers]=useState([])
+    const [msg, setMsg]=useState("")
   
 
     useEffect(()=>{
@@ -49,26 +50,35 @@ const UserContextProvider = (props) =>{
         setUsers(users.filter(user => user._id !== id));
             
     }
-    const unsubscribeUser =(id)=>{
-    //    setUsers(users.filter(user => user.id !== id));
+    const unsubscribeUser =async(id)=>{
+        await axiosWithAuth().patch(`/unsubscribe/${id}`,{plan:"none", isActive:false})
+        .then(res=>console.log(res))
+        .catch(e=>testLog(e))
     }
-    const updateUserHandler =async(id, editUsername)=>{
-        // await axiosWithAuth().patch(`/admin/users/${id}`,
-        // userUpdate)
-        // .then(res=>{
-        //     setUsers(users.map(user=>user._id === id ? {...res.data.data} : user))
-        // })
-        // .catch(err=>{testLog(err)})
-       testLog(id, editUsername)
+    const subscribeUser =async(id, sub)=>{
+        await axiosWithAuth().patch(`/subscribe/${id}`,{plan:sub, isActive:true})
+        .then(res=>setMsg(res.data.message))
+        .catch(e=>testLog(e))
+    }
+    const updateCarHandler=async(fd, id)=>{
+        await axiosWithAuth().patch(`/car/${id}`,
+        {image:fd})
+        .then(res=>{
+            console.log(res.data)
+        })
+        .catch(err=>{testLog(err)})
     }
     return (
         <UserContext.Provider 
         value={
             {users, 
+                msg,
+                setMsg,
               setUsers,
               deleteUser,
-              updateUserHandler,
-              unsubscribeUser
+              updateCarHandler,
+              unsubscribeUser,
+              subscribeUser
               }}>
             { props.children }
         </UserContext.Provider>

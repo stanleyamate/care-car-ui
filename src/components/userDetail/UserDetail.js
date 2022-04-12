@@ -7,7 +7,7 @@ import './UserDetail.css'
 
 const UserDetail = () => {
   const [p, setP]=useState(false)
-  const {users, deleteUser} = useContext(UserContext)
+  const {users, deleteUser, unsubscribeUser} = useContext(UserContext)
   const { id }=  useParams();
   const navigate=useNavigate();
   const user = users.find(user=>(user._id).toString() === id)
@@ -60,8 +60,8 @@ const UserDetail = () => {
           <div className='buttons'>
             <Link to={`/update-user/${user._id}`}className='btn btn-yellow'>Edit User</Link>
           { 
-          p?<Link to={'/unsubscribe'} className='btn btn-red'>Unsubscribe</Link>
-          :<Link to={'/subscribe'} className='btn btn-green'>subscribe</Link>}
+          person.isActive?<span onClick={()=>unsubscribeUser(person._id)} className='btn btn-red'>Unsubscribe</span>
+          :<Link to={`/subscribe/${person._id}`} className='btn btn-green'>subscribe</Link>}
       
             <Link to={'/update-user'} className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </Link>
           </div>

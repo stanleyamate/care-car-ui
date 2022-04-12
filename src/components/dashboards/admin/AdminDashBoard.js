@@ -32,13 +32,14 @@ const AdminDashBoard = () => {
   const usersList= users.length?(
     users.map(user=>{
         return(
-          <li className="user" key={user._id}>
-             <div className='username'>{user.username}</div>
-             <div className='email'>{ user.email }</div>
-             <div className='status'>{ user.plan }</div>
-             <div className='role'>{ user.role }</div>
-        </li>
-       
+          <tr key={user._id}>
+                        <td>{ user.username }</td>
+                        <td className='mobile-hide'>{ user.email }</td>
+                        <td className='tablet'>{ user.plan}</td>
+                        <td className='mobile-hide'>
+                           <img src={`http://localhost:4000/${user.image}`} alt="car" height="50px" />
+                        </td>
+                     </tr>
         )
     }).slice(0,6)
   ):(
@@ -92,11 +93,19 @@ const AdminDashBoard = () => {
             
           </div>
           <div className='user-list sub-content'>
-              <ul >
-              <h2>Active Users</h2>
+                <h2>Active Users</h2>
               <small>Total: {users.length}</small>
-                 {usersList}  
-              </ul>
+              <table>
+                     <thead>
+                        <th>Username</th>
+                        <th className='mobile-hide'>Email</th>
+                        <th className='tablet'>Plan</th>
+                        <th className='mobile-hide'>Car Image</th>
+                     </thead>
+                     <tbody>
+                        {usersList}    
+                     </tbody>
+                  </table>
           </div>
           <div className='service-section sub-content'>
             <ul>

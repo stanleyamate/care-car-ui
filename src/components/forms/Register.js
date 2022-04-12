@@ -44,18 +44,7 @@ const handleRegister= async(e)=>{
 
     try {
       const response = await axios
-      .post('/register', fd
-      // {
-      //   full_names: full_names,
-      //   username: username,
-      //   email:email,
-      //   role:role,
-      //   image: fd,
-      //   car_model:car_model,
-      //   password:password,
-      //   plan:plan
-      // }
-      )
+      .post('/register', fd)
        console.log(response)
        navigate("/login",{replace:true})
        

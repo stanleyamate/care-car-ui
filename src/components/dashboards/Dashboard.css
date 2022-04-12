@@ -53,6 +53,9 @@ img[alt="profile-img"]{
 .dashboard-container .side-bar #subscribe{
     color: green;
 }
+.dashboard-container .side-bar #unsubscribe{
+    color: rgb(238, 99, 99);
+}
 .dashboard-container .content{
     
 }

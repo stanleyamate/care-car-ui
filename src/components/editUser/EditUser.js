@@ -19,9 +19,9 @@ const EditUser = () => {
   const [editEmail, setEditEmail]=useState("");
   const [editPlan, setEditPlan]=useState("");
   const [editRole, setEditRole]=useState("");
+  const [editCarModel, setEditCarModel]=useState("");
 
-  const [userUpdate, setUserUpdate]= useState({})
-
+//  const [userUpdate, setUserUpdate]=useState({})
 
   useEffect(()=>{
     if(user){
@@ -30,13 +30,14 @@ const EditUser = () => {
       setEditPlan(user.plan)
       setEditEmail(user.email)
       setEditRole(user.role)
-     return setUserUpdate({editFull_names,editRole, editEmail, editUsername, editPlan})
+      setEditCarModel(user.car_model)
+    //  return setUserUpdate({editFull_names,editRole, editEmail, editUsername, editPlan, editCarModel})
     }
-  },[])
+  },[editFull_names,editRole, editEmail, editUsername, editPlan, editCarModel])
   
   const handleEdit=async(e)=>{
     e.preventDefault()
-    const editUser= {editEmail, editFull_names, editPlan, editUsername, editRole}
+    const editUser= {editEmail, editFull_names, editPlan, editUsername, editRole, editCarModel}
     try {
        await axiosWithAuth().patch(`/admin/users/${id}`,
         {
@@ -44,6 +45,7 @@ const EditUser = () => {
           username:editUser.editUsername,
           email:editUser.editEmail,
           plan:editUser.editPlan,
+          car_model:editUser.editCarModel,
           role:editUser.editRole
         })
         .then(res=>{
@@ -56,6 +58,8 @@ const EditUser = () => {
       setEditEmail('')
       setEditPlan('')
       setEditUsername('')
+      setEditRole('')
+      setEditCarModel('')
       navigate('/users')
     } catch (err) {
       console.log(err)
@@ -75,6 +79,10 @@ const EditUser = () => {
                      <label htmlFor='Username'>Username:</label>
                      <input type='text' name='username' value={editUsername} onChange={e=>setEditUsername(e.target.value)} onBlur={e=>setEditUsername(e.target.value)} required />
                    </div>                  
+                   <div>
+                     <label htmlFor='Car Model'>Car Model:</label>
+                     <input type='text' value={editCarModel} onChange={e=>setEditCarModel(e.target.value)} onBlur={e=>setEditCarModel(e.target.value)} name='editCarModel' />
+                   </div>
                    <div>
                      <label htmlFor='Email'>Email:</label>
                      <input type='email' value={editEmail} name='email' onChange={e=>setEditEmail(e.target.value)} onBlur={e=>setEditEmail(e.target.value)} required />

@@ -1,19 +1,15 @@
 import { Link} from 'react-router-dom';
 import Car from '../car/Car';
+import { useContext } from 'react';
 import Services from '../service/Services';
 import './Dashboard.css'  
 import useAuth from '../../hooks/useAuth';
+import { UserContext } from '../../context/user.Context/UserContext';
 
 const Dashboard = ({services})=> {
-  const { auth }=useAuth();
-  // const [carImg, setCarImg]= useState()
-  // useEffect(()=>{
-  //   axios.get(`/${auth.image}`)
-  //   .then(res=>{
-  //     setCarImg(res)
-  //   }
-  //   ).catch(err=>console.log(err))
-  // },[auth])
+  const { auth, logout }=useAuth();
+  const{unsubscribeUser}= useContext(UserContext)
+  
 
   return (
 
@@ -34,20 +30,21 @@ const Dashboard = ({services})=> {
               </li>
               <li><p>Role:{auth.role}</p></li>
               <li>
-                <p>Status: <strong id='subscribe'>{auth.isActive ? 'Active' : 'not Active'}</strong></p>
+                <p>Status: {auth.isActive?<strong id='subscribe'> Active</strong> : <strong id='unsubscribe'> Not Active</strong>}</p>
               </li>
               <li>
                   <p>Date Joined: {Date(auth.createdAt).substring(0, 15)}</p>
               </li>
               </div>
             </ul>
-          </div>
+          </div>  
         </aside>
         <main className='content'>
           <div className='buttons'>
-            <Link to={'/'} className='btn btn-green'>Add Car</Link>   
-                 <Link to={'/'} className='btn btn-red'>Unsubscribe</Link>
-            <Link to={'/'} className='btn'>Log Out</Link>
+            <Link to={`/upload-car/${auth._id}`} className='btn'>Add Car</Link>   
+                 {auth.isActive? <span onClick={()=>unsubscribeUser(auth._id)} className='btn btn-red'>Unsubscribe</span>
+                 :<Link to={`/subscribe/${auth._id}`} className='btn btn-green'>Subscribe</Link>}
+            <Link to={'/'} onClick={logout} className='btn'>Log Out</Link>
             
           </div>
           <div className='car-list sub-content'>

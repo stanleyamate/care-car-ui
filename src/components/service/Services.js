@@ -15,7 +15,7 @@ const Services = () => {
       services.map(service=>{
         return(
               <li key={service._id} >
-               <div className="service"><div>{service.text}</div>
+               <div className="service"><div><strong>{service.text}</strong></div>
                     {auth?.role === "admin"?<div className='manage-buttons'>
                        <span className='icon-con'><Link to={`/update-service/${service._id}`} >
                             <AiFillEdit className="icon" onMouseOver={({target})=>target.style.color="blue"}

@@ -10,11 +10,13 @@ import Services from './components/service/Services';
 import UpdateService from "./components/updateService/UpdateService";
 import Dashboard from './components/dashboards/Dashboard';
 import AdminDashBoard from './components/dashboards/admin/AdminDashBoard';
-import Users from './components/dashboards/admin/users/Users';
 import EditUser from "./components/editUser/EditUser";
 import UserDetail from "./components/userDetail/UserDetail";
 import NotFound from "./components/not-found/NotFound";
 import RequireAuth from './components/RequireAuth';
+import CarForm from './components/carForm/CarForm';
+import Subscribe from './components/subcribe/Subscribe';
+import UsersTable from './components/dashboards/admin/users-table/UsersTable';
 
 const App =()=>{
 
@@ -36,14 +38,16 @@ const App =()=>{
                  {/* admin Routes */}
                    <Route element={<RequireAuth allowedRoles={"user"}/>}>
                         <Route  path="user-dashboard" element={<Dashboard />} /> 
+                        <Route  path="upload-car/:id" element={<CarForm />} /> 
                     </Route>    
                     
-                         <Route  path="user-detail/:id" element={<UserDetail/>}/>
+                   <Route  path="subscribe/:id" element={<Subscribe />} /> 
                        
 
                     <Route element={<RequireAuth allowedRoles={"admin"}/>}>
                         <Route  path="admin-board" element={<AdminDashBoard />} />
-                         <Route  path="users"  element={<Users />} />
+                         <Route   path="users" element={<UsersTable />}  />
+                         <Route  path="user-detail/:id" element={<UserDetail/>}/>  
                          <Route  path="update-service/:id" element={<UpdateService/>} />
                          <Route  path="update-user/:id" element={<EditUser/>} />
                      </Route>

@@ -6,8 +6,8 @@ const axiosWithAuth=()=>{
         baseURL:"http://localhost:4000/api",
         headers:{
             authorization:`Bearer ${token}`,
-            "Content-Type":"application/json",
-            withCredentials:true}
+            withCredentials:true
+        }
             
         
     })

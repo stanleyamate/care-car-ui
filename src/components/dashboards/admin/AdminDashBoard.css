@@ -46,13 +46,13 @@
 .admin-container .side-bar div {
     width: 100%;
 }
-/* img[alt="profile-img"]{
+img[alt="profile-img"]{
     height: 50px;
     border-radius: 50%;
     width: 50px;
     border: 2px solid rgb(132, 130, 247);
     padding: .11em;
-} */
+}
 .admin-container .side-bar #subscribe{
     color: green;
 }
@@ -121,7 +121,47 @@
     justify-content: space-around;
     align-items: center;
 }
+.user-list{
+    width: 100%;
+    padding: 2em 1em;
+    background: #e2f2f58e;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+.user-list table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.user-list table thead{
+    background: rgba(24, 73, 179, 0.932);
+    text-align: center;
+}
+.user-list table th{
+    padding: 1em 0;
+    color: azure;
+}
+.user-list table td{
+    padding: .2em 0;
+    text-align: center;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+.user-list h2{
+    margin-bottom: 1em;
+    padding-bottom: .5em;
+    border-bottom: 2px solid rgba(27, 27, 172, 0.295);
+    max-width: 9em;
+}
 
+@media (min-width:600px) {
+    .user-list{
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+}
+  
 
 @media (min-width:750px) {
     .admin-container{
@@ -184,19 +224,4 @@
         grid-area: service;
     }
 }
-/* @media (min-width:1042px) {
-    .admin-container{
-        padding: 0 5em;
-    }
-    .admin-container .side-bar{
-        width: 30%;
-    }
-    .admin-container .content{
-        width: 70%;
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-areas: "buttons buttons"
-                             "user service";
-    }
- 
-} */
+

@@ -5,7 +5,7 @@ a{
     padding: .3em .5em;
 }
 .icon-con:hover{
-    background: rgb(218, 223, 224);
+    background: rgba(33, 19, 80, 0.527);
     border-radius: 2px;
 }
 .message{
@@ -21,8 +21,5 @@ a{
 @media screen and (max-width:600px){
     .mobile-hide{
         display: none;
-    }
-    .message{
-    
     }
 }
