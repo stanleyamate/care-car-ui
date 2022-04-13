@@ -8,17 +8,33 @@ a{
     background: rgba(33, 19, 80, 0.527);
     border-radius: 2px;
 }
+.nav-icon{
+    margin-right: .1em;
+    margin-bottom: -.1em;
+}
+.fill-white{
+    fill: #fff;
+}
 .message{
     width: 100%;
     border-radius:10px;
+    border: 1px solid gainsboro;
     padding: 1em;
     text-align: center;
 }
 .message h4{
    margin-bottom: 1.5em;
 }
+img[alt="profile-img"]{
+    height: 50px;
+    border-radius: 50%;
+    width: 50px;
+    border: 2px solid rgb(132, 130, 247);
+    padding: .11em;
+}
 
 @media screen and (max-width:600px){
+    
     .mobile-hide{
         display: none;
     }

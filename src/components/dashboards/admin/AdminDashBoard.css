@@ -32,7 +32,7 @@
 
 .admin-container .side-bar .profile-name{
     margin-left: 1em;
-    font-size: 1.4em;
+    text-align: center;
     text-transform: capitalize;
 }
 
@@ -46,13 +46,7 @@
 .admin-container .side-bar div {
     width: 100%;
 }
-img[alt="profile-img"]{
-    height: 50px;
-    border-radius: 50%;
-    width: 50px;
-    border: 2px solid rgb(132, 130, 247);
-    padding: .11em;
-}
+
 .admin-container .side-bar #subscribe{
     color: green;
 }

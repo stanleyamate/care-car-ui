@@ -71,7 +71,10 @@ const AdminDashBoard = () => {
             <ul>
               <li>
                 <div className='profile'>
-                     <span className='profile-name'>{auth.username}</span>
+                    <span className='profile-name'>
+                       <h2>{auth.full_names}</h2>
+                       <small>@{auth.username}</small>
+                    </span>
                  </div>
               </li>
               <div className="details">

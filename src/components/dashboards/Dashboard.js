@@ -20,8 +20,10 @@ const Dashboard = ({services})=> {
             <ul>
               <li>
                 <div className='profile'>
-                     <span className='profile-img'><img src={`http://localhost:4000/${auth.image}`} alt="profile-img" /></span>
-                     <span className='profile-name'>{auth.username}</span>
+                    <span className='profile-name'>
+                       <h2>{auth.full_names}</h2>
+                       <small>@{auth.username}</small>
+                    </span>
                  </div>
               </li>
               <div className="details">

@@ -25,7 +25,7 @@ const Subscribe = () => {
   return (
     <div id='subcribe-con'>
        <h3>Choose Plan</h3>
-       <p>{msg}</p>
+       <span className='message'>{msg}</span>
      <form  id="subscribe-form" onSubmit={(e)=>e.preventDefault()}>
        <div>
          <label htmlFor="sub-plan"></label>

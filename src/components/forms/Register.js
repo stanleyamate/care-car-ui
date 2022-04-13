@@ -20,6 +20,7 @@ const Register = () => {
   const [username, setUsername]=useState("");
   const [email, setEmail]=useState("");
   const [image, setImage]=useState();
+  const [profileImage, setProfileImage]=useState();
   const [car_model, setCarModel]=useState("");
   const [password, setPassword]=useState("");
   const [plan, setPlan]=useState("");
@@ -32,6 +33,7 @@ const handleFile =(e)=>{
   
 const handleRegister= async(e)=>{
     e.preventDefault();
+
     let fd= new FormData();
     fd.append('full_names', full_names);
     fd.append('username', username);
@@ -62,7 +64,7 @@ const handleRegister= async(e)=>{
 
   useEffect(()=>{
     setErrMsg('');
-  }, [username,full_names, password, email, plan, role, car_model, image])
+  }, [username,full_names, password, email, plan, role, car_model, image, profileImage])
 
 
 
@@ -89,7 +91,7 @@ const handleRegister= async(e)=>{
                      <input type='text' value={car_model} onChange={e=>setCarModel(e.target.value)} onBlur={e=>setCarModel(e.target.value)} name='car-model' />
                    </div>
                    <div>
-                     <label htmlFor='Image'>Car Image:</label>
+                     <label htmlFor='image'>Car Image:</label>
                      <input type="file" name="image" id="image" onChange={handleFile}/>
                    </div>
                    <div>
