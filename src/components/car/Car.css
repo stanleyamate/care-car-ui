@@ -29,6 +29,7 @@
     border: 5px solid rgba(0, 139, 139, 0.363);
     padding: 1em;
     border-radius: 8px;
+    background-color: rgba(152, 236, 236, 0.24);
     
 }
 .car-section .card .card-footer{
