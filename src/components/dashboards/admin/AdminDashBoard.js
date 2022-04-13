@@ -33,13 +33,13 @@ const AdminDashBoard = () => {
     users.map(user=>{
         return(
           <tr key={user._id}>
-                        <td>{ user.username }</td>
-                        <td className='mobile-hide'>{ user.email }</td>
-                        <td className='tablet'>{ user.plan}</td>
-                        <td className='mobile-hide'>
-                           <img src={`http://localhost:4000/${user.image}`} alt="car" height="50px" />
-                        </td>
-                     </tr>
+              <td>{ user.username }</td>
+              <td className='mobile-hide'>{ user.email }</td>
+              <td className='tablet'>{ user.plan}</td>
+             <td className='mobile-hide'>
+                <img src={`http://localhost:4000/${user.image}`} alt="car" height="50px" />
+            </td>
+          </tr>
         )
     }).slice(0,6)
   ):(
@@ -100,10 +100,12 @@ const AdminDashBoard = () => {
               <small>Total: {users.length}</small>
               <table>
                      <thead>
-                        <th>Username</th>
-                        <th className='mobile-hide'>Email</th>
-                        <th className='tablet'>Plan</th>
-                        <th className='mobile-hide'>Car Image</th>
+                        <tr>
+                          <th>Username</th>
+                          <th className='mobile-hide'>Email</th>
+                          <th className='tablet'>Plan</th>
+                          <th className='mobile-hide'>Car Image</th>
+                        </tr>
                      </thead>
                      <tbody>
                         {usersList}    

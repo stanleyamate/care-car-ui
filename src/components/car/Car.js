@@ -25,8 +25,10 @@ const Car = ({person}) => {
                         }
                    </div>
                    <div className='card-details'>
-                       <h3>{person?person.car_model: auth.car_model}</h3>
-                       <p>Subscription Plan: {person? person.plan:auth.plan}</p>
+                       <h2>{person?person.car_model: auth.car_model}</h2>
+                       <p>Subscription Plan: 
+                         <strong id='subscription-plan'>{person? person.plan:auth.plan}</strong>
+                       </p>
                    </div>
                 </div>
                 <div className='card-footer'>

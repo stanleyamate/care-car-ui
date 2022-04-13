@@ -33,6 +33,7 @@ const Login = () => {
       email:email,
       password:password
     })
+    console.log(res.data.user)
     const user = res.data.user;
     localStorage.setItem("token", res.data.user.token)
     setAuth(user);

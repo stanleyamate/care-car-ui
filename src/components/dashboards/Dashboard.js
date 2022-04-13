@@ -35,7 +35,10 @@ const Dashboard = ({services})=> {
                 <p>Status: {auth.isActive?<strong id='subscribe'> Active</strong> : <strong id='unsubscribe'> Not Active</strong>}</p>
               </li>
               <li>
-                  <p>Date Joined: {Date(auth.createdAt).substring(0, 15)}</p>
+                  <p>Date Joined: {Date(auth.createdAt).substring(3, 15)}</p>
+              </li>
+              <li>
+                  <p>Date of Exp: {auth.show_end_date}</p>
               </li>
               </div>
             </ul>
