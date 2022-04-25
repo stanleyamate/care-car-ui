@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react'
-// import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import axiosWithAuth from '../../hooks/axiosWithAuth';
 import { testLog } from '../../utils';
 
@@ -62,9 +61,9 @@ const UserContextProvider = (props) =>{
     }
     const updateCarHandler=async(fd, id)=>{
         await axiosWithAuth().patch(`/car/${id}`,
-        {image:fd})
+        fd)
         .then(res=>{
-            console.log(res.data)
+            setMsg(res.data.message)
         })
         .catch(err=>{testLog(err)})
     }

@@ -8,15 +8,15 @@ const CarForm = () => {
   const navigate= useNavigate() 
   const {updateCarHandler}= useContext(UserContext)
   
-  const [carImage, setCarImage]=useState()
+  const [image, setImage]=useState()
   const handleFile =(e)=>{
     let file=e.target.files[0]
-      setCarImage(file)
+      setImage(file)
   }
     const handleUpdate=(e)=>{
       e.preventDefault()
       let fd= new FormData();
-      fd.append('car-image', carImage);
+      fd.append('image', image);
       try {
         updateCarHandler(fd, id )
       } catch (err) {
@@ -31,7 +31,7 @@ const CarForm = () => {
                <div>
                <label htmlFor='car-form'>
                </label>
-                     <input type="file" name="car-image" id="image" onChange={handleFile}/>   
+                     <input type="file" name="image" id="image" onChange={handleFile}/>   
                <button className='btn btn-yellow' value="submit" onClick={handleUpdate}>add/Update</button>
                </div>
             </form>

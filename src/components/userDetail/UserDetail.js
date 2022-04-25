@@ -31,8 +31,11 @@ const UserDetail = () => {
           <div>
             <ul>
               <li>
-                <div className='profile'>
-                     <h3 className='prof-name'>{person.full_names}</h3>
+                <div className='prof'>
+                  <div className="names">
+                  <h3>{person.full_names}</h3>
+                  <small>@{person.username}</small>
+                  </div>
                  </div>
               </li>
               <div className="details">

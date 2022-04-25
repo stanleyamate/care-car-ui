@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.css'
+import { FaFacebook, FaTwitter, FaLinkedin, FaGitAlt } from 'react-icons/fa';
 import Logo from '../../assets/images/download.png'
 const Footer = () => {
   return (
@@ -20,29 +21,24 @@ const Footer = () => {
               <h3>Contact Us</h3>
               <p>+237 658 459 887</p>
               <p>info@carcare.com</p>
-              <p>lorem</p>
-              <p>lorem</p>
             </div>
             <div className='col col-3'>
               <h3>Company</h3>
-              <p>lorem</p>
-              <p>lorem</p>
-              <p>lorem</p>
-              <p>lorem</p>
+              <p>Board</p>
+              <p>Employees</p>
             </div>
             <div className='col col-4'>
               <h3>Infomation</h3>
-              <p>lorem</p>
-              <p>lorem</p>
-              <p>lorem</p>
-              <p>lorem</p>
+              <p>Our Partners</p>
+              <p>Activities</p>
+              <p>Blog</p>
             </div>
       </div>
         <div className='social'>
-          <p>A</p>
-          <p>A</p>
-          <p>A</p>
-          <p>A</p>
+        <div className="icon"><FaFacebook /></div>
+          <div className="icon"><FaTwitter /></div>
+          <div className="icon"><FaLinkedin /></div>
+          <div className="icon"><FaGitAlt /></div>
       </div>
       <div className='footer-base'>
           <p>CopyRights {new Date().getFullYear()}</p>

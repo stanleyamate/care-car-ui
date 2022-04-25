@@ -52,7 +52,7 @@
         grid-template-areas: 'col-1 col-1 col-2 col-2'
                              'col-3 col-3 col-4 col-4';
     }
-    .footer .social p{
+    .footer .social div{
         margin: 1em;
     }
     .footer .col h3, .footer .col p{
