@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 import './Navbar.css'
 import Logo from "../../assets/images/download.png";
-import { BiUserCircle, BiLogOutCircle, BiLogInCircle} from 'react-icons/bi'
+import { BiUserCircle,BiLogInCircle} from 'react-icons/bi'
 import {RiAdminLine} from 'react-icons/ri'
 import {AiOutlineHome, AiOutlineLogin} from 'react-icons/ai'
 import {MdMiscellaneousServices} from 'react-icons/md'
@@ -10,7 +10,7 @@ import useAuth from '../../hooks/useAuth';
 import Profile from '../../assets/images/profile.png'
 
 const Navbar = () => {
-   const {auth, setAuth, isLogged, setIsLogged, logout}=useAuth();
+   const {auth, isLogged, logout}=useAuth();
     const [click, setClick] = useState(false)
    const handleClick = () =>setClick(!click)
    const handleDefault=()=> setClick(false)
@@ -35,14 +35,14 @@ const Navbar = () => {
             <li> 
               <Link to={'/user-dashboard'} onClick={handleDefault}><BiUserCircle className='nav-icon'/>Dashboard</Link>
             </li>
-            {auth.role =="admin"?
+            {auth.role ==="admin"?
               <li>
               <Link to={'/admin-board'} onClick={handleDefault}><RiAdminLine className='nav-icon'/>Admin</Link>
             </li>
             : <></>
             }
             <li>
-              <Link to={'/service'} onClick={handleDefault}> <MdMiscellaneousServices className='nav-icon'/>Services</Link>
+              <Link to={'/service'} onClick={handleDefault}> <MdMiscellaneousServices className='nav-icon'/>Services/Plans</Link>
             </li>
           </ul>
             {

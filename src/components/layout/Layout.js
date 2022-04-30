@@ -1,5 +1,7 @@
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
+import Notification from '../notification/Notification';
+
 import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
@@ -7,6 +9,7 @@ const Layout = () => {
 
     <div className='App'>
       <Navbar />
+      <Notification />
         <Outlet />
       <Footer /> 
     </div>

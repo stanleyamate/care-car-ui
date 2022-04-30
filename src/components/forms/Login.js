@@ -1,9 +1,9 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 import './Login.css'
 import axios from '../api/axios';
-import { testLog } from '../../utils';
+import { UserContext } from '../../context/user.Context/UserContext';
 const LOGIN_URL = '/login'
 
 //axios Global
@@ -17,6 +17,7 @@ const Login = () => {
 
     //login
   const { setAuth, setIsLogged } = useAuth();
+  const {setMsg} =useContext(UserContext)
   const navigate = useNavigate();
   const location =useLocation();
   const from = location.state?.from?.pathname || '/'
@@ -29,11 +30,12 @@ const Login = () => {
   const handleLogin= async(e)=>{
     e.preventDefault();
    try {
-    const res = await axios.post(LOGIN_URL, {
+    await axios.post(LOGIN_URL, {
       email:email,
       password:password
     })
-    console.log(res.data.user)
+    .then(res=>{
+      setMsg(res.data.message)
     const user = res.data.user;
     localStorage.setItem("token", res.data.user.token)
     setAuth(user);
@@ -41,6 +43,12 @@ const Login = () => {
     setEmail('')
     setPassword('')
     navigate(from, {replace:true})  
+    }).catch(err=>{
+      if(err.response?.status === 404){
+        setMsg("User not found")
+    }
+    })
+    
    } catch (err) {
      if(err?.response){
        setErrMsg('No server response')
@@ -49,7 +57,10 @@ const Login = () => {
        setErrMsg('Missing email or Password')
      }else if(err.response?.status === 401){
          setErrMsg('Unauthorized')
-     }else{
+     }else if(err.response?.status === 404){
+         setMsg(`${email} is not Found`)
+     }
+     else{
        setErrMsg('Login failed')
      }
 
@@ -90,7 +101,6 @@ useEffect(()=>{
                    </div>
                     <div className="form-footer">
                      <button className='btn'>Login</button>
-
                      <div><p>Not Sign-up?</p><Link to={'/register'}>Create Account</Link></div>
                     </div>
                 </form>

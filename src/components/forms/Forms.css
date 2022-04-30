@@ -41,6 +41,15 @@
     padding: .2em 0;
     /* border: 1px solid grey; */
 }
+.forms .form-footer div p{
+    margin-right: 1em;
+}
+.forms .form-footer div a{
+  transition: ease .2s;
+}
+.forms .form-footer div a:hover{
+    text-decoration: underline;
+}
 .forms form input{
     width: 100%;
     padding: .5em 0;

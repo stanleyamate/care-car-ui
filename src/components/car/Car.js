@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './Car.css'
 import useAuth from '../../hooks/useAuth'
 import CarDefault from '../../assets/images/car-default.png'
@@ -14,15 +14,14 @@ const Car = ({person}) => {
             <div className='card'>
                 <div className='card-body'>
                    <div className='card-img'>
-                        <img src={person?
-                        `http://localhost:4000/${person.image}`:
-                        `http://localhost:4000/${auth.image}`
+                        <img src={
+                        `http://localhost:4000/${ person.image ||  auth.image}`
                         } alt='user-car' />
-                        {
+                        {/* {
                             !person?.image && !auth?.image?
                             <img src={CarDefault} alt="car-default"  />
                             :<></>
-                        }
+                        } */}
                    </div>
                    <div className='card-details'>
                        <h2>{person?person.car_model: auth.car_model}</h2>

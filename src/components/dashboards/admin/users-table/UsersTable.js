@@ -8,7 +8,7 @@ import { UserContext } from '../../../../context/user.Context/UserContext'
 import useAuth from '../../../../hooks/useAuth' 
 
 const UsersTable = () => {
-   const { users, deleteUser } = useContext(UserContext)
+   const { users, deleteUser, unsubscribeUser} = useContext(UserContext)
       
       const usersList = users.length?(
          users.map(user=>{
@@ -33,14 +33,11 @@ const UsersTable = () => {
                                     </Link>
                                  </span>
                                  <span className='icon-con'>
-                                    <AiFillDelete className="icon"/>
-                                 </span>
-                                 <span className='icon-con'>
-                                    <MdUnsubscribe className="icon"/>
+                                    <AiFillDelete className="icon" onClick={()=>deleteUser(user._id)}/>
                                  </span>
                            </div>  
                         </td>
-                     </tr>
+               </tr>
             )
          })
       ):(
@@ -57,11 +54,13 @@ const UsersTable = () => {
                   <small>Total:{users.length}</small>            
                   <table>
                      <thead>
-                        <th>Username</th>
-                        <th className='tablet'>Email</th>
-                        <th className='tablet'>Plan</th>
-                        <th className='tablet'>Car Image</th>
-                        <th>Manage</th>
+                        <tr>
+                           <th>Username</th>
+                           <th className='tablet'>Email</th>
+                           <th className='tablet'>Plan</th>
+                           <th className='tablet'>Car Image</th>
+                           <th>Manage</th>
+                        </tr>
                      </thead>
                      <tbody>
                         {usersList}    

@@ -6,7 +6,6 @@ import Services from '../service/Services';
 import './UserDetail.css'  
 
 const UserDetail = () => {
-  const [p, setP]=useState(false)
   const {users, deleteUser, unsubscribeUser} = useContext(UserContext)
   const { id }=  useParams();
   const navigate=useNavigate();
@@ -19,6 +18,7 @@ const UserDetail = () => {
     e.preventDefault()
      try {
       deleteUser(user._id)
+      navigate('/users')
     } catch (error) {
       console.log(error)
     }
@@ -61,12 +61,12 @@ const UserDetail = () => {
         </aside>
         <main className='content'>
           <div className='buttons'>
-            <Link to={`/update-user/${user._id}`}className='btn btn-yellow'>Edit User</Link>
+            <Link to={`/update-user/${user._id}`} className='btn btn-yellow'>Edit User</Link>
           { 
-          person.isActive?<span onClick={()=>unsubscribeUser(person._id)} className='btn btn-red'>Unsubscribe</span>
-          :<Link to={`/subscribe/${person._id}`} className='btn btn-green'>subscribe</Link>}
-      
-            <Link to={'/update-user'} className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </Link>
+            person.isActive?<button onClick={()=>unsubscribeUser(person._id)} className='btn btn-red'>Unsubscribe</button>
+            :<Link to={`/subscribe/${person._id}`} className='btn btn-green'>Subscribe</Link>
+          }
+            <button className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </button>
           </div>
           <div className='car-list sub-content'>
             <Car person={person}/>

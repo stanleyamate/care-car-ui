@@ -8,11 +8,11 @@ const PLANS=["none", "weekly", "monthly"];
 const ROLES=["user", "admin"];
 
 const EditUser = () => {
-  const {users, updateUserHandler, setUsers} = useContext(UserContext)
+  const {users, setUsers} = useContext(UserContext)
   const { id }=  useParams();
   const navigate =useNavigate();
   const user = users.find(user=>(user._id).toString() === id)
-
+  const [msg, setMsg]= useState("")
 
   const [editFull_names, setEditFullnames]=useState("");
   const [editUsername, setEditUsername]=useState("");
@@ -50,7 +50,7 @@ const EditUser = () => {
         })
         .then(res=>{
             setUsers(users.map(user=>user._id === id ? res.data.data : user))
-            
+            setMsg(res.data.message)
             
         })
         .catch(err=>{console.log(err)})

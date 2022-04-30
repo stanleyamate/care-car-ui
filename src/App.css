@@ -16,11 +16,12 @@ a{
     fill: #fff;
 }
 .message{
-    width: 100%;
+    max-width: 500px;
     border-radius:10px;
     border: 1px solid gainsboro;
     padding: 1em;
     text-align: center;
+    transition: ease-in .5s;
 }
 .message h4{
    margin-bottom: 1.5em;

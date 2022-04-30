@@ -3,7 +3,6 @@ import axiosWithAuth from '../../hooks/axiosWithAuth';
 import { testLog } from '../../utils';
 
 
-
 export const UserContext= createContext();
 
 const UserContextProvider = (props) =>{
@@ -13,9 +12,11 @@ const UserContextProvider = (props) =>{
 
     useEffect(()=>{
        let isSubscribed=true
-       const controller = new AbortController();
-       const signal = controller.signal;
-         const fetchUsers = async()=>{
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    const fetchUsers = async()=>{
+    
         await axiosWithAuth().get('/admin/users',{signal: signal})
         .then(res=>{
             if(isSubscribed){
@@ -24,19 +25,17 @@ const UserContextProvider = (props) =>{
             }
         }).catch(err=>{
             if(err.response){
-                console.log(err.response.data)
-                console.log(err.response.headers)
                 if(err.response.status === 500){
-                    console.log("Server Error")
+                    setMsg("Server Error")
                 }
             }else if(err.request){
                 console.log(err.request)
             }else{
-                console.log(err.message)
+                setMsg(err.response)
             }
         }) 
     }
-        fetchUsers()
+       fetchUsers()
         return()=>{
              isSubscribed=false
              controller.abort();
@@ -45,13 +44,16 @@ const UserContextProvider = (props) =>{
 
     const deleteUser =async(id)=>{
         await axiosWithAuth().delete(`/admin/users/${id}`)
+        .then(res=>setMsg(res.data.message))
         .catch(e=>testLog(e))
         setUsers(users.filter(user => user._id !== id));
             
     }
     const unsubscribeUser =async(id)=>{
         await axiosWithAuth().patch(`/unsubscribe/${id}`,{plan:"none", isActive:false})
-        .then(res=>console.log(res))
+        .then(res=>{
+            setMsg(res.data.message)
+        })
         .catch(e=>testLog(e))
     }
     const subscribeUser =async(id, sub)=>{
@@ -73,11 +75,11 @@ const UserContextProvider = (props) =>{
             {users, 
                 msg,
                 setMsg,
-              setUsers,
-              deleteUser,
-              updateCarHandler,
-              unsubscribeUser,
-              subscribeUser
+                setUsers,
+                deleteUser,
+                updateCarHandler,
+                unsubscribeUser,
+                subscribeUser
               }}>
             { props.children }
         </UserContext.Provider>

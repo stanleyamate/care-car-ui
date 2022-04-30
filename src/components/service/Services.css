@@ -1,15 +1,25 @@
 .service-con{
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 700px;
+    margin: 3em auto;
+    text-align: center;
 
 }
 .service{
     display: flex;
     width: 100%;
 }
+.no-service{
+    padding-top: 1em;
+}
+.plans{
+    margin-bottom: 2em;
+}
+.plans p{
+    margin-top: 1em;
+}
 .service div:first-child{
     margin-right: auto;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 .service-list{
     --radius: 15px;

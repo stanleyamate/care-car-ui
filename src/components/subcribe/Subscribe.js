@@ -9,7 +9,7 @@ const PLANS =["none", "weekly", "monthly"]
 const Subscribe = () => {
   const {id} = useParams()
   const navigate= useNavigate()
-  const {subscribeUser, msg, setMsg}= useContext(UserContext)
+  const {subscribeUser}= useContext(UserContext)
        const {auth} =useAuth()
   const [sub, setSub]=useState("")
   const handleSubmit=async()=>{
@@ -18,14 +18,13 @@ const Subscribe = () => {
   useEffect(()=>{
     let isMounted=true
     return()=>{
-       setMsg("")
        isMounted=false
      }
   },[])
+  
   return (
     <div id='subcribe-con'>
        <h3>Choose Plan</h3>
-       <span className='message'>{msg}</span>
      <form  id="subscribe-form" onSubmit={(e)=>e.preventDefault()}>
        <div>
          <label htmlFor="sub-plan"></label>

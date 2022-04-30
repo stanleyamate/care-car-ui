@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Hero.css'
 import HomeCar from '../../assets/images/svg/home-car.svg'
 import Car2 from '../../assets/images/car2.png'
@@ -14,10 +15,9 @@ const Hero = () => {
           <div className='caption'>
               <h1>Auto-Care</h1>
               <h3>We Offer Top Notch Auto Services to anyone and everyone...</h3>
-              <button className='btn btn-hero'>Services And Plans</button>
+              <Link to={"/service"} className='btn btn-hero' >Services And Plans</Link>
           </div>
           <div className="hero-images">
-               
               <img className='car' src={Car2} alt="car"/>
           </div>
        </div>

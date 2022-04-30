@@ -1,13 +1,16 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
 import './Forms.css'
+import { UserContext } from '../../context/user.Context/UserContext';
 
 const PLANS=["none", "weekly", "monthly"];
 const ROLES=["user", "admin"];
 
 const Register = () => {
+  const{setMsg}=useContext(UserContext)
   const navigate =useNavigate()
+
 
   // const config={
   //   headers:{
@@ -47,8 +50,16 @@ const handleRegister= async(e)=>{
     try {
       const response = await axios
       .post('/register', fd)
-       console.log(response)
-       navigate("/login",{replace:true})
+       setMsg(response.data.message)
+       setCarModel("")
+       setEmail("")
+       setFullnames("")
+       setUsername("")
+       setImage()
+       setPassword("")
+       setPlan("")
+       setRole("")
+      //  navigate("/login",{replace:true})
        
     } catch (err) {
       if(!err?.response){

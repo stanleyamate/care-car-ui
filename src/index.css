@@ -32,6 +32,10 @@ body {
   cursor: pointer;
   transition: .1s;
 }
+.btn-not{
+  padding: 5px;
+  margin-top: 5px;
+}
 .btn:active{
   box-shadow: 0 0 1px rgba(0,0,0,0.2);
   border-bottom: none;

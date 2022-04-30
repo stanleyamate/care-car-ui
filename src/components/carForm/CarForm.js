@@ -6,7 +6,7 @@ import './CarForm.css'
 const CarForm = () => {
   const { id }= useParams();
   const navigate= useNavigate() 
-  const {updateCarHandler}= useContext(UserContext)
+  const {updateCarHandler, msg }= useContext(UserContext)
   
   const [image, setImage]=useState()
   const handleFile =(e)=>{
@@ -19,6 +19,7 @@ const CarForm = () => {
       fd.append('image', image);
       try {
         updateCarHandler(fd, id )
+        // navigate("/user-dashboard", {replace:true})
       } catch (err) {
         console.log(err)
       }
@@ -28,6 +29,7 @@ const CarForm = () => {
         <div className='update-service-con'>
             <form onSubmit={(e)=>e.preventDefault()}>
                <h2>Add / Update Car</h2>
+               <span className='message'>{msg}</span>
                <div>
                <label htmlFor='car-form'>
                </label>

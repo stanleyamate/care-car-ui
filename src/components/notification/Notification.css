@@ -1,0 +1,32 @@
+.notification{
+    background:  rgb(44, 84, 168);
+    width: 100%;
+    padding: .5em;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    bottom: -130px;
+    z-index: 10;
+    transition: .2s ease;
+}
+.notification h4{
+    color: #fff;
+    font-size: larger;
+    text-transform: capitalize;
+}
+.show{
+  bottom: 20px;
+}
+span{
+    cursor: pointer;
+}
+@media  screen and (min-width: 600px) {
+    .notification{
+        right: 1em;
+        width: 300px;
+        height: 130px;
+    }
+}
