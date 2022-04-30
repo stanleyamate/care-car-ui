@@ -9,7 +9,7 @@ import './Services.css'
 const Services = () => {
   const {auth} =useAuth()
 
-    const {services,serviceMsg, deleteServiceHandler}=React.useContext(ServiceContext)
+    const {services, deleteServiceHandler}=React.useContext(ServiceContext)
     const serviceList= services.length? (
       services.map(service=>{
         return(

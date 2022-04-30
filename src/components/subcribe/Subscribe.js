@@ -1,16 +1,13 @@
 import React,{useContext, useEffect, useState} from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import { UserContext } from '../../context/user.Context/UserContext'
-import useAuth from '../../hooks/useAuth'
 import './Subscribe.css'
 
 const PLANS =["none", "weekly", "monthly"]
 
 const Subscribe = () => {
   const {id} = useParams()
-  const navigate= useNavigate()
   const {subscribeUser}= useContext(UserContext)
-       const {auth} =useAuth()
   const [sub, setSub]=useState("")
   const handleSubmit=async()=>{
   await  subscribeUser(id, sub)

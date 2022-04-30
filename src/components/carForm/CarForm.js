@@ -1,11 +1,10 @@
 import React,{ useContext, useState} from 'react'
-import { useParams, useNavigate} from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import { UserContext } from '../../context/user.Context/UserContext';
 import './CarForm.css'
 
 const CarForm = () => {
   const { id }= useParams();
-  const navigate= useNavigate() 
   const {updateCarHandler, msg }= useContext(UserContext)
   
   const [image, setImage]=useState()
