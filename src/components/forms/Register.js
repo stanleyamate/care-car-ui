@@ -66,8 +66,8 @@ const handleRegister= async(e)=>{
       if(!err?.response){
         setErrMsg('no server response');
       }
-      else if(err.response?.status === 409){
-        setErrMsg('username taken')
+      else if(err?.response?.status === 409){
+        setMsg(err.response.data.message)
       }else{
         setErrMsg('Registration failed')
       }

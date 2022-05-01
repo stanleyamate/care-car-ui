@@ -32,14 +32,13 @@ const Navbar = () => {
             <li>
               <Link to={'/'} onClick={handleDefault}><AiOutlineHome className='nav-icon'/>Home</Link>
             </li>
-            <li> 
-              <Link to={'/user-dashboard'} onClick={handleDefault}><BiUserCircle className='nav-icon'/>Dashboard</Link>
-            </li>
             {auth.role ==="admin"?
               <li>
               <Link to={'/admin-board'} onClick={handleDefault}><RiAdminLine className='nav-icon'/>Admin</Link>
             </li>
-            : <></>
+            :auth.role ==="user"? <li> 
+               <Link to={'/user-dashboard'} onClick={handleDefault}><BiUserCircle className='nav-icon'/>Dashboard</Link>
+             </li>: <></>
             }
             <li>
               <Link to={'/service'} onClick={handleDefault}> <MdMiscellaneousServices className='nav-icon'/>Services/Plans</Link>

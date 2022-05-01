@@ -32,12 +32,11 @@ const Login = () => {
   const handleLogin= async(e)=>{
     e.preventDefault();
    try {
-    await axios.post(LOGIN_URL, {
+    const res = await axios.post(LOGIN_URL, {
       email:email,
       password:password
     })
-    .then(res=>{
-      setMsg(res.data.message)
+    setMsg(res.data.message)
     const user = res.data.user;
     localStorage.setItem("token", res.data.user.token)
     setAuth(user);
@@ -45,29 +44,20 @@ const Login = () => {
     setEmail('')
     setPassword('')
     navigate(from, {replace:true})  
-    }).catch(err=>{
-      if(err.response?.status === 404){
-        setMsg("User not found")
-    }
-    })
     
-   } catch (err) {
-     if(err?.response){
-       setErrMsg('No server response')
-     }
-     else if(err.response?.status === 400){
-       setErrMsg('Missing email or Password')
-     }else if(err.response?.status === 401){
-         setErrMsg('Unauthorized')
+   }catch (err) {
+      if(!err?.response){
+       setErrMsg('no server response');
      }else if(err.response?.status === 404){
-         setMsg(`${email} is not Found`)
+       setMsg("User not found")
      }
-     else{
+     else if(err.response?.status === 401){
+       setMsg(err?.response.data.message)
+     }else{
        setErrMsg('Login failed')
      }
-
-   }
  }
+}
  
 useEffect(()=>{
 
