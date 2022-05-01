@@ -23,17 +23,18 @@ const Register = () => {
   const [username, setUsername]=useState("");
   const [email, setEmail]=useState("");
   const [image, setImage]=useState();
-  const [profileImage, setProfileImage]=useState();
   const [car_model, setCarModel]=useState("");
   const [password, setPassword]=useState("");
-  const [plan, setPlan]=useState("");
-  const [role, setRole]=useState("");
+  const [plan, setPlan]=useState("none");
+  const [role, setRole]=useState("user");
   const [errMsg, setErrMsg]=useState("");
 const handleFile =(e)=>{
   let file=e.target.files[0]
     setImage(file)
 }
-  
+  if((plan !=="none") && role ==="admin"){
+    setPlan("none")
+  }
 const handleRegister= async(e)=>{
     e.preventDefault();
 
@@ -72,10 +73,9 @@ const handleRegister= async(e)=>{
       }
     }
  }
-
   useEffect(()=>{
     setErrMsg('');
-  }, [username,full_names, password, email, plan, role, car_model, image, profileImage])
+  }, [username,full_names, password, email, plan, role, car_model, image])
 
 
 
