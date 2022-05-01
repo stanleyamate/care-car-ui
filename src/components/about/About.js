@@ -4,7 +4,8 @@ import './About.css'
 const About = () => {
   return (
       <>
-        <div className='about-con'>
+      <div className="bg">
+           <div className='about-con'>
             <h2>About Us</h2>
             <main className='content'>
                 <h5>This project was developed by Amate stanley</h5>
@@ -13,6 +14,8 @@ const About = () => {
                 <h5>@Car-Care</h5>
             </main>
         </div>
+      </div>
+       
       </>
     
   )

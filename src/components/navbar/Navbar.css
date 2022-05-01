@@ -62,7 +62,7 @@
         transition: .5s;
         align-items: center;
         height: 100vh;
-        width: 60%;
+        width: 80%;
         background: rgba(44, 44, 71, 0.973);
         padding: 1em ;
         z-index: 10;
@@ -82,7 +82,7 @@
     .nav-container .nav-menu li {
         border-bottom: 1px solid rgba(177, 175, 175, 0.329);
         transition: .2s;
-        width: 40%;
+        width: 60%;
         text-align: center;
     }
     /* .nav-container .nav-menu li:first-child {

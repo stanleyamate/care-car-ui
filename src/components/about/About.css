@@ -4,6 +4,11 @@
     text-align: center;
     margin: 0 auto;
 }
+.bg{
+    background:url("../../assets/images/about-bg.png") no-repeat;
+    background-size: contain;
+    background-position: 100%;
+}
 .about-con h2{
     font-size: 4em;
 }
