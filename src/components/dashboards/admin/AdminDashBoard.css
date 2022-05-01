@@ -46,7 +46,21 @@
 .admin-container .side-bar div {
     width: 100%;
 }
+.admin-container .content .no-user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
 
+}
+.admin-container .content .refresh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5em;
+    padding: .5em;
+}
 .admin-container .side-bar #subscribe{
     color: green;
 }

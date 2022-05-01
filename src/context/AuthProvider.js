@@ -9,7 +9,6 @@ export const AuthProvider = ({ children })=>{
     const [isLogged, setIsLogged]= useState(localStorage.getItem("token")? true: false)
 
     const logout=()=>{
-     
         localStorage.removeItem("token")
         setAuth({})
         setIsLogged(false)

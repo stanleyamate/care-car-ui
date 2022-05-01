@@ -31,7 +31,7 @@ const UsersTable = () => {
                                  </span>
                                  <span className='icon-con'>
                                     <Link to={`/update-user/${user._id}`}>
-                                       <AiFillEdit className="icon" />
+                                       <AiFillEdit className="white" />
                                     </Link>
                                  </span>
                                  <span className='icon-con'>
@@ -45,7 +45,7 @@ const UsersTable = () => {
       ):(
          <div className='message'>
             <h4>No User yet</h4>
-            <Link className="btn" to={'/admin-dashboard'}>Go back</Link>
+            <Link className="btn" to={'/admin-board'}>Go back</Link>
          </div>
       )
        

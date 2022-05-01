@@ -1,4 +1,4 @@
-import React,{useContext, useEffect, useState} from 'react'
+import React,{useContext, useState} from 'react'
 import { useParams} from 'react-router-dom'
 import { UserContext } from '../../context/user.Context/UserContext'
 import './Subscribe.css'
@@ -12,12 +12,6 @@ const Subscribe = () => {
   const handleSubmit=async()=>{
   await  subscribeUser(id, sub)
   }
-  useEffect(()=>{
-    let isMounted=true
-    return()=>{
-       isMounted=false
-     }
-  },[])
   
   return (
     <div id='subcribe-con'>

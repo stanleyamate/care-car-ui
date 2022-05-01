@@ -1,4 +1,5 @@
 import React,{ useState, useContext} from 'react'
+import {BiRefresh} from 'react-icons/bi'
 import './AdminDashBoard.css'
 import { Link} from 'react-router-dom'
 import {ServiceContext} from '../../../context/service.Context/ServiceContext'
@@ -10,7 +11,7 @@ const AdminDashBoard = () => {
   
   const { auth }=useAuth();
 
-  const { users } = useContext(UserContext)
+  const { users, getUsers } = useContext(UserContext)
   const { services, addServiceHandler } = useContext(ServiceContext)
 
  const [text, setText] = useState('');
@@ -28,6 +29,9 @@ const AdminDashBoard = () => {
     }
 
 }
+const getUsersHandler=()=>{
+  getUsers()
+}
 
   const usersList= users.length?(
     users.map(user=>{
@@ -43,8 +47,9 @@ const AdminDashBoard = () => {
         )
     }).slice(0,6)
   ):(
-    <div className='message'>
+    <div className='no-user'>
       <h4>No Users yet...</h4>
+    <button className='btn btn-yellow refresh' onClick={getUsersHandler}><BiRefresh className='fill-white' size={25}/>Refresh</button>
     </div>
   )
   const serviceList = services.length?(
@@ -98,7 +103,7 @@ const AdminDashBoard = () => {
           <div className='user-list sub-content'>
                 <h2>Active Users</h2>
               <small>Total: {users.length}</small>
-              <table>
+              {users.length?<table>
                      <thead>
                         <tr>
                           <th>Username</th>
@@ -110,7 +115,7 @@ const AdminDashBoard = () => {
                      <tbody>
                         {usersList}    
                      </tbody>
-                  </table>
+              </table>:<div>{usersList}</div>}
           </div>
           <div className='service-section sub-content'>
             <ul>

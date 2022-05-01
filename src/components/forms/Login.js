@@ -59,19 +59,6 @@ const Login = () => {
  }
 }
  
-useEffect(()=>{
-
-   
-
-  const controller = new AbortController();
-  const signal = controller.signal;
-
-  return()=>{
-    
-    controller.abort()
-  }
-},[])
-  
  useEffect(()=>{
   setErrMsg('');
 }, [email, password])

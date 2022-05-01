@@ -1,6 +1,7 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect} from 'react'
 import axiosWithAuth from '../../hooks/axiosWithAuth';
 import { testLog } from '../../utils';
+import useAuth from '../../hooks/useAuth';
 
 
 export const UserContext= createContext();
@@ -8,21 +9,19 @@ export const UserContext= createContext();
 const UserContextProvider = (props) =>{
     const [users, setUsers]=useState([])
     const [msg, setMsg]=useState("")
-  
-
-    useEffect(()=>{
-       let isSubscribed=true
+    const {islogged}= useAuth()
     const controller = new AbortController();
     const signal = controller.signal;
-
-    const fetchUsers = async()=>{
     
-        await axiosWithAuth().get('/admin/users',{signal: signal})
+    useEffect(()=>{
+
+      const controller = new AbortController();
+      const signal = controller.signal;
+
+    const fetchUsers =async()=>{
+       await axiosWithAuth().get('/admin/users',{signal:signal})
         .then(res=>{
-            if(isSubscribed){
-                setUsers(res.data.data)
-                
-            }
+            setUsers(res.data.data)
         }).catch(err=>{
             if(err.response){
                 if(err.response.status === 500){
@@ -35,12 +34,29 @@ const UserContextProvider = (props) =>{
             }
         }) 
     }
-       fetchUsers()
+    if(islogged){
+        fetchUsers()
+    }
         return()=>{
-             isSubscribed=false
              controller.abort();
         }
-    },[])
+    },[islogged])
+    const getUsers =async()=>{
+        await axiosWithAuth().get('/admin/users',{signal:signal})
+         .then(res=>{
+             setUsers(res.data.data)
+         }).catch(err=>{
+             if(err.response){
+                 if(err.response.status === 500){
+                     setMsg("Server Error")
+                 }
+             }else if(err.request){
+                 console.log(err.request)
+             }else{
+                 setMsg(err.response)
+             }
+         }) 
+     }
 
     const deleteUser =async(id)=>{
         await axiosWithAuth().delete(`/admin/users/${id}`)
@@ -76,6 +92,7 @@ const UserContextProvider = (props) =>{
                 msg,
                 setMsg,
                 setUsers,
+                getUsers,
                 deleteUser,
                 updateCarHandler,
                 unsubscribeUser,

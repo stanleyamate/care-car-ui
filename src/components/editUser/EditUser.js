@@ -8,11 +8,10 @@ const PLANS=["none", "weekly", "monthly"];
 const ROLES=["user", "admin"];
 
 const EditUser = () => {
-  const {users, setUsers} = useContext(UserContext)
+  const {users, setUsers, setMsg} = useContext(UserContext)
   const { id }=  useParams();
   const navigate =useNavigate();
   const user = users.find(user=>(user._id).toString() === id)
-  const [msg, setMsg]= useState("")
 
   const [editFull_names, setEditFullnames]=useState("");
   const [editUsername, setEditUsername]=useState("");
@@ -33,7 +32,7 @@ const EditUser = () => {
       setEditCarModel(user.car_model)
     //  return setUserUpdate({editFull_names,editRole, editEmail, editUsername, editPlan, editCarModel})
     }
-  },[editFull_names,editRole, editEmail, editUsername, editPlan, editCarModel])
+  },[editFull_names,editRole, editEmail, editUsername, editPlan, editCarModel,user])
   
   const handleEdit=async(e)=>{
     e.preventDefault()
