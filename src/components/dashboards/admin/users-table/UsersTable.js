@@ -2,13 +2,12 @@ import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import './UsersTable.css'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
-import { MdUnsubscribe } from 'react-icons/md'
 import { BiDetail } from 'react-icons/bi'
 import { UserContext } from '../../../../context/user.Context/UserContext'
-import useAuth from '../../../../hooks/useAuth' 
+import CarDefault from '../../../../assets/images/car-default.png'
 
 const UsersTable = () => {
-   const { users, deleteUser, unsubscribeUser} = useContext(UserContext)
+   const { users, deleteUser} = useContext(UserContext)
       
       const usersList = users.length?(
          users.map(user=>{
@@ -18,7 +17,10 @@ const UsersTable = () => {
                         <td className='tablet'>{ user.email }</td>
                         <td className='tablet'>{ user.plan}</td>
                         <td className='tablet'>
-                           <img src={`http://localhost:4000/${user.image}`} alt="car" height="50px" />
+                           {
+                              user.image?<img src={`http://localhost:4000/${user.image}`} alt="car" height="50px" />:
+                              <img src={CarDefault} alt="car" height="50px" />
+                           }
                         </td>
                         <td>
                            <div className='manage-buttons'>

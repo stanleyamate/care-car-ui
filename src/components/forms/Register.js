@@ -58,9 +58,9 @@ const handleRegister= async(e)=>{
        setUsername("")
        setImage()
        setPassword("")
-       setPlan("")
-       setRole("")
-      //  navigate("/login",{replace:true})
+       setPlan("none")
+       setRole("user")
+       navigate("/login",{replace:true})
        
     } catch (err) {
       if(!err?.response){
@@ -99,7 +99,8 @@ const handleRegister= async(e)=>{
                    </div>
                    <div>
                      <label htmlFor='Car Model'>Car Model:</label>
-                     <input type='text' value={car_model} onChange={e=>setCarModel(e.target.value)} onBlur={e=>setCarModel(e.target.value)} name='car-model' />
+    
+                     <input type='text' value={car_model} required={car_model === "" && role === "user"?true: false} onChange={e=>setCarModel(e.target.value)} onBlur={e=>setCarModel(e.target.value)} name='car-model' />
                    </div>
                    <div>
                      <label htmlFor='image'>Car Image:</label>
