@@ -1,0 +1,21 @@
+.about-con{
+    width: 90%;
+    padding: 2em 0;
+    text-align: center;
+    margin: 0 auto;
+}
+.about-con h2{
+    font-size: 4em;
+}
+.about-con .content{
+    margin: 5px 10px;
+    line-height: 2;
+}
+.about-con .content h5{
+    margin: 5px 0;
+}
+@media screen and (max-width: 600px){
+    .about-con{
+       max-width: 900px;
+    }
+}

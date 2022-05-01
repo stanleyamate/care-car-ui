@@ -17,10 +17,9 @@ import RequireAuth from './components/RequireAuth';
 import CarForm from './components/carForm/CarForm';
 import Subscribe from './components/subcribe/Subscribe';
 import UsersTable from './components/dashboards/admin/users-table/UsersTable';
+import About from './components/about/About';
 
 const App =()=>{
-
- 
 
   return (
           <>  
@@ -33,7 +32,8 @@ const App =()=>{
                    <Route path="register" element={<Register/>} />
 
                    <Route   path="service" element={<Services />}  />
-            
+                   
+                   <Route path='about' element={<About />} />
 
                  {/* admin Routes */}
                    <Route element={<RequireAuth allowedRoles={"user"}/>}>
@@ -41,7 +41,7 @@ const App =()=>{
                         <Route  path="upload-car/:id" element={<CarForm />} /> 
                     </Route>    
                     
-                   <Route  path="subscribe/:id" element={<Subscribe />} /> 
+                    <Route  path="subscribe/:id" element={<Subscribe />} /> 
                        
 
                     <Route element={<RequireAuth allowedRoles={"admin"}/>}>

@@ -60,7 +60,7 @@ const EditUser = () => {
       setEditUsername('')
       setEditRole('')
       setEditCarModel('')
-      navigate('/users')
+      navigate('/users',{replace:true})
     } catch (err) {
       console.log(err)
     }

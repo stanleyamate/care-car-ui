@@ -44,6 +44,9 @@ const Navbar = () => {
             <li>
               <Link to={'/service'} onClick={handleDefault}> <MdMiscellaneousServices className='nav-icon'/>Services/Plans</Link>
             </li>
+            <li>
+              <Link to={'/about'} onClick={handleDefault}>About</Link>
+            </li>
           </ul>
             {
               isLogged ?<Link to={'/'} onClick={logout} className='btn'><BiLogInCircle className='nav-icon fill-white' /> Log out</Link>

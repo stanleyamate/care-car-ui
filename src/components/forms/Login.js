@@ -1,5 +1,7 @@
 import {useState, useEffect, useContext} from 'react'
 import { useNavigate, Link, useLocation } from 'react-router-dom'
+import {MdEmail} from 'react-icons/md'
+import {FaKey} from 'react-icons/fa'
 import useAuth from '../../hooks/useAuth'
 import './Login.css'
 import axios from '../api/axios';
@@ -92,11 +94,11 @@ useEffect(()=>{
                 <form className='Login-form' onSubmit={handleLogin}>
                     <legend>Login</legend>
                    <div>
-                     <label htmlFor='email'>email:</label>
+                     <label htmlFor='email'>< MdEmail className='icon'/></label>
                      <input type='text' onChange={(e)=>setEmail(e.target.value)} value={email} autoComplete="off" required />
                    </div>
                    <div>
-                     <label htmlFor='Password'>Password:</label>
+                     <label htmlFor='Password'><FaKey/></label>
                      <input type='password' onChange={(e)=>setPassword(e.target.value)} value={password} required />
                    </div>
                     <div className="form-footer">
