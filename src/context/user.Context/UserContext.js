@@ -8,6 +8,7 @@ export const UserContext= createContext();
 
 const UserContextProvider = (props) =>{
     const [users, setUsers]=useState([])
+    const [cars, setCars]=useState([])
     const [msg, setMsg]=useState("")
     const {islogged}= useAuth()
     const controller = new AbortController();
@@ -77,6 +78,23 @@ const UserContextProvider = (props) =>{
         .then(res=>setMsg(res.data.message))
         .catch(e=>testLog(e))
     }
+    const getCars=async()=>{
+            await axiosWithAuth().get('/admin/carlist',{signal:signal})
+             .then(res=>{
+                //  setUsers(res.data.data)
+                console.log(res.data)
+             }).catch(err=>{
+                 if(err.response){
+                     if(err.response.status === 500){
+                         setMsg("Server Error")
+                     }
+                 }else if(err.request){
+                     console.log(err.request)
+                 }else{
+                     setMsg(err.response)
+                 }
+             }) 
+    }
     const updateCarHandler=async(fd, id)=>{
         await axiosWithAuth().patch(`/car/${id}`,
         fd)
@@ -89,10 +107,12 @@ const UserContextProvider = (props) =>{
         <UserContext.Provider 
         value={
             {users, 
+                cars,
                 msg,
                 setMsg,
                 setUsers,
                 getUsers,
+                getCars,
                 deleteUser,
                 updateCarHandler,
                 unsubscribeUser,

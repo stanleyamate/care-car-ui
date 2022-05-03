@@ -8,12 +8,6 @@ import axios from '../api/axios';
 import { UserContext } from '../../context/user.Context/UserContext';
 const LOGIN_URL = '/login'
 
-//axios Global
-// axios.defaults.headers.common['Authorization'] = localStorage.getItem("token");
-
-
-
-
 const Login = () => {
   
 

@@ -97,7 +97,7 @@ const getUsersHandler=()=>{
           <div className='buttons'>
             <Link to={'/service'} className='btn btn-green'>All Services</Link>
             <Link to={'/users'} className='btn btn-blue'>All Users</Link>
-            <Link to={'/'} className='btn'>Log Out</Link>
+            <Link to={'/carlist'} className='btn'>Car List</Link>
             
           </div>
           <div className='user-list sub-content'>

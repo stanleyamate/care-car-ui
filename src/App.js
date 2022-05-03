@@ -17,6 +17,7 @@ import RequireAuth from './components/RequireAuth';
 import CarForm from './components/carForm/CarForm';
 import Subscribe from './components/subcribe/Subscribe';
 import UsersTable from './components/dashboards/admin/users-table/UsersTable';
+import Carlist from './components/carlist/Carlist'
 import About from './components/about/About';
 
 const App =()=>{
@@ -46,6 +47,7 @@ const App =()=>{
 
                     <Route element={<RequireAuth allowedRoles={"admin"}/>}>
                         <Route  path="admin-board" element={<AdminDashBoard />} />
+                        <Route  path="carlist" element={<Carlist/>} />
                          <Route   path="users" element={<UsersTable />}  />
                          <Route  path="user-detail/:id" element={<UserDetail/>}/>  
                          <Route  path="update-service/:id" element={<UpdateService/>} />
