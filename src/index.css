@@ -37,6 +37,7 @@ body {
   padding: 5px;
   margin-top: 5px;
 }
+
 .btn:active{
   box-shadow: 0 0 1px rgba(0,0,0,0.2);
   border-bottom: none;
@@ -83,6 +84,12 @@ ul li{
   }
   .btn-red:hover{
     background:  rgb(226, 64, 64);
+  }
+  .btn-disabled{
+  background: #ccc;
+  }
+  .btn-disabled:hover{
+  background: #ccc;
   }
 ul li a {
   text-decoration: none;

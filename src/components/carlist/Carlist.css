@@ -1,16 +1,16 @@
-.car-section{
+.carlist-section{
     width: 100%;
     height: 100%;
     border-radius: 8px;
     padding: 1em;
     background-color: aliceblue;
 }
-.car-section h1{
+.carlist-section h1{
     font-size: 2em;
     opacity: .7;
     margin-bottom: .5em;
 }
-.car-section .card{
+.carlist-section .card{
     display:flex;
     flex-direction: column;
     border: 3px solid rgb(219, 219, 219);
@@ -23,14 +23,14 @@
     color: darkcyan;
     margin-left: .2em;
 }
-.car-section .card-body .card-img{
+.carlist-section .card-body .card-img{
     width: 100%;
 }
-.car-section .card-body .card-details h3{
+.carlist-section .card-body .card-details h3{
     margin: .5em 0;
 }
 
-.car-section .card-body .card-details {
+.carlist-section .card-body .card-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,70 +42,70 @@
     background-color: rgba(152, 236, 236, 0.24);
     
 }
-.car-section .card .card-footer{
+.carlist-section .card .card-footer{
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-.car-section .carlist-cards .no-user{
+.carlist-section .carlist-cards .no-user{
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 
 }
-.car-section .carlist-cards{
+.carlist-section .carlist-cards{
     justify-self: center;
     align-self: center;
 }
-.car-section .car-container{
+.carlist-section .car-container{
     display: flex;
     flex-direction: column;
 }
-.car-section .carlist-cards .refresh{
+.carlist-section .carlist-cards .refresh{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: .5em;
     padding: .5em;
 }
-.car-section .card .card-footer .danger-zone{
+.carlist-section .card .card-footer .danger-zone{
     border: 1px solid rgba(236, 27, 27, 0.404);
     padding: .5em;
     border-radius: 8px;
 
 }
-.car-section .card .card-footer .btn:first-child,
-.car-section .card .card-footer .danger-zone .btn:first-child
+.carlist-section .card .card-footer .btn:first-child,
+.carlist-section .card .card-footer .danger-zone .btn:first-child
 {
     margin-right: 1em;
 }
-.car-section .card .card-body .card-img img{
+.carlist-section .card .card-body .card-img img{
     min-height: 200px;
     width: 100%;
     border-radius: 8px;
 }
-.car-section .card .card-footer{
+.carlist-section .card .card-footer{
     margin-top:1em;
 }
 @media screen and (min-width:600px) {
     
-    .car-section .car-container .carlist-cards{
+    .carlist-section .car-container .carlist-cards{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    .car-section .card-body .card-img{
+    .carlist-section .card-body .card-img{
         max-width: 350px;
     }
-    .car-section .card{
+    .carlist-section .card{
         margin: .5em;
     }
 }
 @media screen and (min-width:900px) {
-    .car-section  .car-container .carlist-cards{
+    .carlist-section  .car-container .carlist-cards{
         grid-template-columns: repeat(3, 1fr);
     }
-    .car-section .car-container{
+    .carlist-section .car-container{
         padding: 0 3em;
     }
 }

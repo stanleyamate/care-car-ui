@@ -103,7 +103,12 @@ const getUsersHandler=()=>{
           <div className='user-list sub-content'>
                 <h2>Active Users</h2>
               <small>Total: {users.length}</small>
-              {users.length?<table>
+              {users.length?
+              <>
+              <button className='btn btn-yellow refresh' onClick={getUsersHandler}><BiRefresh className='fill-white' size={25}/>Refresh</button> <br />
+              </>:<></>}
+              {users.length?
+              <table>
                      <thead>
                         <tr>
                           <th>Username</th>

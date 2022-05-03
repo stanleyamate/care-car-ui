@@ -8,40 +8,13 @@ export const UserContext= createContext();
 
 const UserContextProvider = (props) =>{
     const [users, setUsers]=useState([])
+    const [user, setUser]=useState({})
     const [cars, setCars]=useState([])
     const [msg, setMsg]=useState("")
     const {islogged}= useAuth()
     const controller = new AbortController();
     const signal = controller.signal;
-    
-    useEffect(()=>{
 
-      const controller = new AbortController();
-      const signal = controller.signal;
-
-    const fetchUsers =async()=>{
-       await axiosWithAuth().get('/admin/users',{signal:signal})
-        .then(res=>{
-            setUsers(res.data.data)
-        }).catch(err=>{
-            if(err.response){
-                if(err.response.status === 500){
-                    setMsg("Server Error")
-                }
-            }else if(err.request){
-                console.log(err.request)
-            }else{
-                setMsg(err.response)
-            }
-        }) 
-    }
-    if(islogged){
-        fetchUsers()
-    }
-        return()=>{
-             controller.abort();
-        }
-    },[islogged])
     const getUsers =async()=>{
         await axiosWithAuth().get('/admin/users',{signal:signal})
          .then(res=>{
@@ -58,6 +31,15 @@ const UserContextProvider = (props) =>{
              }
          }) 
      }
+    useEffect(()=>{
+    if(islogged){
+        getUsers()
+    }
+        return()=>{
+             controller.abort();
+        }
+    },[user])
+    
 
     const deleteUser =async(id)=>{
         await axiosWithAuth().delete(`/admin/users/${id}`)
@@ -67,15 +49,21 @@ const UserContextProvider = (props) =>{
             
     }
     const unsubscribeUser =async(id)=>{
-        await axiosWithAuth().patch(`/unsubscribe/${id}`,{plan:"none", isActive:false})
+        await axiosWithAuth().put(`/unsubscribe/${id}`,{plan:"none", isActive:false})
         .then(res=>{
+            setUser(res.data.update)
+            setUsers(...users, user)
             setMsg(res.data.message)
         })
         .catch(e=>testLog(e))
     }
     const subscribeUser =async(id, sub)=>{
-        await axiosWithAuth().patch(`/subscribe/${id}`,{plan:sub, isActive:true})
-        .then(res=>setMsg(res.data.message))
+        await axiosWithAuth().put(`/subscribe/${id}`,{plan:sub, isActive:true})
+        .then(res=>{
+            setUser(res.data.update)
+            setUsers(...users, user)
+            setMsg(res.data.message)
+        })
         .catch(e=>testLog(e))
     }
     const getCars=async()=>{

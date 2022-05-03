@@ -3,7 +3,7 @@ import './Car.css'
 import useAuth from '../../hooks/useAuth'
 import CarDefault from '../../assets/images/car-default.png'
 
-const Car = ({person}) => {
+const Car = ({user}) => {
   const { auth } = useAuth();
    
   return (
@@ -14,19 +14,17 @@ const Car = ({person}) => {
             <div className='card'>
                 <div className='card-body'>
                    <div className='card-img'>
-                        <img src={
-                        `http://localhost:4000/${ person.image ||  auth.image}`
-                        } alt='user-car' />
+              <img src={`http://localhost:4000/${auth.image || user.image}`} alt='user-car' />
                         {
-                            !person?.image && !auth?.image?
+                            !user?.image && !auth?.image?
                             <img src={CarDefault} alt="car-default"  />
                             :<></>
                         }
                    </div>
                    <div className='card-details'>
-                       <h2>{person?person.car_model: auth.car_model}</h2>
+                       <h2>{user?user.car_model: auth.car_model}</h2>
                        <p>Subscription Plan: 
-                         <strong id='subscription-plan'>{person? person.plan:auth.plan}</strong>
+                         <strong id='subscription-plan'>{user? user.plan:auth.plan}</strong>
                        </p>
                    </div>
                 </div>

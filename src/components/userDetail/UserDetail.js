@@ -13,7 +13,7 @@ const UserDetail = () => {
   const [person, setPerson]=useState([])
   useEffect(()=>{
     setPerson(user)
-  },[person, user])
+  },[user])
   const deleteUserHandler=(e)=>{
     e.preventDefault()
      try {
@@ -33,24 +33,25 @@ const UserDetail = () => {
               <li>
                 <div className='prof'>
                   <div className="names">
-                  <h3>{person.full_names}</h3>
-                  <small>@{person.username}</small>
+                  <h3>{user.full_names}</h3>
+                  <small>@{user.username}</small>
                   </div>
                  </div>
               </li>
               <div className="details">
               <li>
-                <p>Email: {person.email}</p>
+                <p>Email: {user.email}</p>
               </li>
-              <li><p>Role: {person.role}</p></li>
               <li>
-              { person.isActive?
-                <p>Status: <strong id='subscribe'>Subscribed</strong></p>:
-                <p>Status: <strong id='unsubscribe'>UnSubscribed</strong></p>
+                <p>Role: {user.role}</p></li>
+              <li>
+              { user.isActive?
+                <p>Status: <strong id='unsubscribe'>Unsubscribed</strong></p>:
+                <p>Status: <strong id='subscribe'>Subscribed</strong></p>
                 }
               </li>
               <li>
-                  <p></p>
+                  <p>{user.show_end_date}</p>
               </li>
               <li>
                  
@@ -63,13 +64,14 @@ const UserDetail = () => {
           <div className='buttons'>
             <Link to={`/update-user/${user._id}`} className='btn btn-yellow'>Edit User</Link>
           { 
-            person.isActive?<button onClick={()=>unsubscribeUser(person._id)} className='btn btn-red'>Unsubscribe</button>
-            :<Link to={`/subscribe/${person._id}`} className='btn btn-green'>Subscribe</Link>
+            user.isActive?
+            <button onClick={()=>unsubscribeUser(user._id)} className='btn btn-red'>Unsubscribe</button>
+            :<button className='btn btn-disabled'>Unsubscribed</button>
           }
             <button className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </button>
           </div>
           <div className='car-list sub-content'>
-            <Car person={person}/>
+            <Car user={user}/>
           </div>
           <div className='service-section sub-content'>
             <Services />

@@ -40,11 +40,10 @@ const App =()=>{
                    <Route element={<RequireAuth allowedRoles={"user"}/>}>
                         <Route  path="user-dashboard" element={<Dashboard />} /> 
                         <Route  path="upload-car/:id" element={<CarForm />} /> 
-                    </Route>    
-                    
-                    <Route  path="subscribe/:id" element={<Subscribe />} /> 
-                       
+                        <Route  path="subscribe/:id" element={<Subscribe />} /> 
+                    </Route>   
 
+  
                     <Route element={<RequireAuth allowedRoles={"admin"}/>}>
                         <Route  path="admin-board" element={<AdminDashBoard />} />
                         <Route  path="carlist" element={<Carlist/>} />

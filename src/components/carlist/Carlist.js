@@ -42,7 +42,7 @@ const Carlist = () => {
    )
 
   return (
-    <div className='car-section'>
+    <div className='carlist-section'>
         <div className='car-container'>
             <h1>Car List</h1>
             <div className="carlist-cards">
