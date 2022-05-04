@@ -9,8 +9,7 @@ export const UserContext= createContext();
 const UserContextProvider = (props) =>{
     const [users, setUsers]=useState([])
     const [user, setUser]=useState({})
-    const [cars, setCars]=useState([])
-    const [msg, setMsg]=useState("")
+    const [msg, setMsg]=useState({})
     const {islogged}= useAuth()
     const controller = new AbortController();
     const signal = controller.signal;
@@ -38,7 +37,7 @@ const UserContextProvider = (props) =>{
         return()=>{
              controller.abort();
         }
-    },[user])
+    },[islogged,user])
     
 
     const deleteUser =async(id)=>{
@@ -94,8 +93,7 @@ const UserContextProvider = (props) =>{
     return (
         <UserContext.Provider 
         value={
-            {users, 
-                cars,
+            {users,
                 msg,
                 setMsg,
                 setUsers,

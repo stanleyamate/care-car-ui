@@ -19,6 +19,7 @@ import Subscribe from './components/subcribe/Subscribe';
 import UsersTable from './components/dashboards/admin/users-table/UsersTable';
 import Carlist from './components/carlist/Carlist'
 import About from './components/about/About';
+import AdminRegister from './components/forms/AdminRegister';
 
 const App =()=>{
 
@@ -31,6 +32,9 @@ const App =()=>{
                    <Route path="login" element={<Login/>} />
 
                    <Route path="register" element={<Register/>} />
+
+                   <Route path="/admin/register" element={<AdminRegister/>} />
+                   
 
                    <Route   path="service" element={<Services />}  />
                    

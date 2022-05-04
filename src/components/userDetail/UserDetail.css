@@ -64,10 +64,17 @@
     margin: 0 auto 1em auto;
 
 }
-.dashboard-container .content .buttons{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+@media (min-width:250px) {
+    .dashboard-container .content .buttons{
+        display: flex;
+        flex-direction: column;
+    }
+    .dashboard-container .content .buttons .btn{
+        width: 100%;
+        margin: .3em 0;
+        text-align: center;
+    }
 }
 
 
@@ -88,15 +95,19 @@
                                "car" 
                              "service";
     }
-    .dashboard-container .content .buttons{
+    /* .dashboard-container .content .buttons{
        grid-area: buttons;
-    }
+       display: flex;
+        justify-content: space-around;
+        align-items: center;
+    } */
     .dashboard-container .content .car-list{
        grid-area: car;
     }
     .dashboard-container .content .service-section{
         grid-area: service;
     }
+    
 }
 @media (min-width:950px) {
     .dashboard-container{

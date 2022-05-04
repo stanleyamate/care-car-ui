@@ -4,18 +4,17 @@
     100%{opacity: 0;}
 }
 .notification{
-    background:  rgb(55, 105, 214);
     width: 100%;
     padding: .5em;
     position: fixed;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
-    bottom: 3em;
+    bottom: -200px;
     z-index: 10;
-    transition: 2s ease-in;
+    transition: 1s ease-in;
 }
 .notification h4{
     color: #fff;
@@ -23,13 +22,16 @@
     text-transform: capitalize;
 }
 .show{
-  bottom: 20px;
-  display: flex;
-  animation-name: fade;
-  animation-delay: 3s;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-direction: normal;
+  bottom: 3em;
+}
+.success{
+    background-color: rgba(71, 231, 71, 0.418);
+    border: 2px solid green;
+
+}
+.failed{
+    background-color: rgba(250, 61, 61, 0.418);
+    border: 2px solid red;
 }
 span{
     cursor: pointer;

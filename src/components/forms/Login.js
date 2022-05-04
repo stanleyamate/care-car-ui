@@ -43,7 +43,7 @@ const Login = () => {
       if(!err?.response){
        setErrMsg('no server response');
      }else if(err.response?.status === 404){
-       setMsg("User not found")
+       setMsg(err?.response.data.message)
      }
      else if(err.response?.status === 401){
        setMsg(err?.response.data.message)

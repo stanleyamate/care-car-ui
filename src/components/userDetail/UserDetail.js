@@ -6,7 +6,7 @@ import Services from '../service/Services';
 import './UserDetail.css'  
 
 const UserDetail = () => {
-  const {users, deleteUser, unsubscribeUser} = useContext(UserContext)
+  const {users, deleteUser, subscribeUser} = useContext(UserContext)
   const { id }=  useParams();
   const navigate=useNavigate();
   const user = users.find(user=>(user._id).toString() === id)
@@ -64,9 +64,9 @@ const UserDetail = () => {
           <div className='buttons'>
             <Link to={`/update-user/${user._id}`} className='btn btn-yellow'>Edit User</Link>
           { 
-            user.isActive?
-            <button onClick={()=>unsubscribeUser(user._id)} className='btn btn-red'>Unsubscribe</button>
-            :<button className='btn btn-disabled'>Unsubscribed</button>
+            user.isActive?<button className='btn btn-disabled'>Unsubscribed</button>
+            :<Link to={`/subscribe/${user._id}`} className='btn btn-green'>Subscribe</Link>
+            
           }
             <button className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </button>
           </div>

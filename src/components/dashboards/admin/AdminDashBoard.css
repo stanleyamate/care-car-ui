@@ -82,6 +82,9 @@
     width: 100%;
 
 }
+.admin-container .service-section .btn-add-service{
+    text-align: center;
+}
 .admin-container .content .sub-content{
     width: 100%;
     margin-top: 1em;
@@ -167,6 +170,12 @@ th, td {
         margin: 0 auto;
         width: 100%;
     }
+    .admin-container .content .service-section form input{
+        width: 80%;  
+     }
+    .admin-container .content .service-section form .btn{
+        width: 18%;  
+     }
     
 }
   
@@ -197,12 +206,12 @@ th, td {
     .admin-container .content .service-section{
         grid-area: service;
     }
-    .admin-container .content .service-section form input{
-        width: 80%;  
+    /* .admin-container .content .service-section form input{
+        width: 75%;  
      }
     .admin-container .content .service-section form .btn{
-        width: 17%;  
-     }
+        width: 23%;  
+     } */
 }
 @media (min-width:950px) {
     .admin-container{
@@ -231,5 +240,11 @@ th, td {
     .admin-container .content .service-section{
         grid-area: service;
     }
+    /* .admin-container .content .service-section form input{
+        width: 70%;  
+     }
+    .admin-container .content .service-section form .btn{
+        width: 27%;  
+     } */
 }
 

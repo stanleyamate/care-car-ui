@@ -132,7 +132,7 @@ const getUsersHandler=()=>{
                 <h4>Add Service</h4>
                 <form onSubmit={handleServiceSubmit}>
                   <input type="text" name='text' value={text} onChange={(e)=> setText(e.target.value)} onBlur={(e)=> setText(e.target.value) }/>
-                  <button className='btn' type='submit'>Add Service</button>
+                  <button className='btn btn-add-service' type='submit'>Add</button>
                 </form>
             </div>
           </div>

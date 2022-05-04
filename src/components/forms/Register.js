@@ -5,19 +5,10 @@ import './Forms.css'
 import { UserContext } from '../../context/user.Context/UserContext';
 
 const PLANS=["none", "weekly", "monthly"];
-const ROLES=["user", "admin"];
 
 const Register = () => {
   const{setMsg}=useContext(UserContext)
   const navigate =useNavigate()
-
-
-  // const config={
-  //   headers:{
-  //     'Content-Type':'multipart/form-data',
-  //     withCredentials:true
-  //   }
-  // }
 
   const [full_names, setFullnames]=useState("");
   const [username, setUsername]=useState("");
@@ -51,7 +42,7 @@ const handleRegister= async(e)=>{
     try {
       const response = await axios
       .post('/register', fd)
-       setMsg(response.data.message)
+       setMsg(response.data.message.msg)
        setCarModel("")
        setEmail("")
        setFullnames("")
@@ -67,7 +58,7 @@ const handleRegister= async(e)=>{
         setErrMsg('no server response');
       }
       else if(err?.response?.status === 409){
-        setMsg(err.response.data.message)
+        setMsg(err.response.data.message.msg)
       }else{
         setErrMsg('Registration failed')
       }
@@ -124,7 +115,7 @@ const handleRegister= async(e)=>{
                       } 
                    </select>
                    </div>
-                   <div>
+                   {/* <div>
                      <label htmlFor='role'>Role:</label>
                      <select id="role" value={role} required onChange={(e)=> setRole(e.target.value)} onBlur={(e)=> setRole(e.target.value)}>
                       
@@ -136,7 +127,7 @@ const handleRegister= async(e)=>{
                        ))
                       } 
                    </select>
-                   </div>
+                   </div> */}
                    </div>
                    <div>
                    <button className='btn'>Register</button>

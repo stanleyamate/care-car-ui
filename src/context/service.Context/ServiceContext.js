@@ -7,7 +7,7 @@ export const ServiceContext= createContext();
 
 const ServiceContextProvider=(props)=>{
     const [services, setServices] = useState([])
-    const [serviceMsg, setServiceMsg]= useState("")
+    const [serviceMsg, setServiceMsg]= useState({})
     useEffect(()=>{
         let mounted = true;
         const controller = new AbortController()
