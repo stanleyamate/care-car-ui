@@ -1,16 +1,21 @@
+@keyframes fade{
+    0%{opacity: 1;}
+    50%{opacity: 0.5;}
+    100%{opacity: 0;}
+}
 .notification{
-    background:  rgb(44, 84, 168);
+    background:  rgb(55, 105, 214);
     width: 100%;
     padding: .5em;
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
-    bottom: -130px;
+    bottom: 3em;
     z-index: 10;
-    transition: .2s ease;
+    transition: 2s ease-in;
 }
 .notification h4{
     color: #fff;
@@ -19,6 +24,12 @@
 }
 .show{
   bottom: 20px;
+  display: flex;
+  animation-name: fade;
+  animation-delay: 3s;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-direction: normal;
 }
 span{
     cursor: pointer;

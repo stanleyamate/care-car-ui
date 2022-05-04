@@ -9,6 +9,7 @@ import {MdOutlineMiscellaneousServices} from 'react-icons/md';
 import {MdEventAvailable} from 'react-icons/md';
 
 const Hero = () => {
+
   return (
      <>
         <div className='hero'>
@@ -16,6 +17,7 @@ const Hero = () => {
               <h1>Auto-Care</h1>
               <h3>We Offer Top Notch Auto Services to anyone and everyone...</h3>
               <Link to={"/service"} className='btn btn-hero' >Services And Plans</Link>
+              
           </div>
           <div className="hero-images">
               <img className='car' src={Car2} alt="car"/>
