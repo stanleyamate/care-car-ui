@@ -14,6 +14,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+# Note
+The default register page is for Regular user i.e [http://localhost:3000/register](http://localhost:3000/register)
+To register as Admin [http://localhost:3000/admin/register](http://localhost:3000/admin/register)
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
