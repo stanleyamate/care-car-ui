@@ -138,9 +138,9 @@
     justify-content: space-between;
     padding: 0 3em;
 }
-.jumbo .card-group .card{
+/* .jumbo .card-group .card{
    padding: 2em 1em;
-   background-color: rgb(108, 172, 228);
+   /* background-color: rgb(108, 172, 228);
    display: flex;
    flex-direction: column;
    text-align: center;
@@ -149,18 +149,20 @@
    border-radius: 5px;
    border: 1px solid rgb(203, 240, 240);
    box-shadow: 0 0 10px rgb(192, 192, 192);
-}
+} */
 .jumbo .card-group .card{
    padding: 2em 1em;
-   background-color: rgb(255, 255, 255);
+   background-color: rgba(224, 242, 250, 0.473);
    display: flex;
    flex-direction: column;
    text-align: center;
-   max-height: 250px;
+   height: 250px;
    width: 100%;
    margin: 1em 0;
    border-radius: 10px;
    border: 1px solid rgb(203, 240, 240);
+   /* border: 1px solid rgb(248, 172, 57); */
+
    box-shadow: 0 0 10px rgb(192, 192, 192);
 }
 .jumbo .card-group .card .card-icon{
@@ -222,6 +224,11 @@
     .jumbo .card-group .card{
         max-width: 250px ;
     }
+    .jumbo .card-group{
+        background: url("../../assets/images/about-bg.png") no-repeat;
+        background-size: contain;
+        background-position: 100% 0;
+    }
    
 }
 @media screen and (min-width:924px){
@@ -231,8 +238,6 @@
         background-position: 50% 50%;
         background-size: cover;
     /* overflow: hidden; */
-}
-.caption h1{
 }
 .home-container .section-a h1,
 .home-container .section-b h1{
@@ -253,6 +258,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.hero .hero-images img{
+    width: 92%;
 }
 .hero .car{
     height: 50vh;

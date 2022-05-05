@@ -52,6 +52,12 @@ body {
 ul li{
   list-style-type: none;
 }
+  .btn-hero {
+    background:  rgb(224, 103, 4);
+  }
+  .btn-hero:hover{
+    background:  rgb(204, 101, 17);
+  }
   .btn-green {
     background:  rgb(70, 167, 48);
   }
