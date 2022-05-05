@@ -125,6 +125,12 @@
         grid-template-areas: "buttons buttons"
                              "car service";
     }
+    .dashboard-container .admin{
+        width: 70%;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "buttons buttons"
+                             "service service";
+    }
     .dashboard-container .content .buttons{
        grid-area: buttons;
     }

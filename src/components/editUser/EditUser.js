@@ -33,6 +33,10 @@ const EditUser = () => {
     //  return setUserUpdate({editFull_names,editRole, editEmail, editUsername, editPlan, editCarModel})
     }
   },[editFull_names,editRole, editEmail, editUsername, editPlan, editCarModel,user])
+  // if(editRole === "admin"){
+  //   setEditPlan("none")
+    
+  // }
   
   const handleEdit=async(e)=>{
     e.preventDefault()

@@ -40,35 +40,36 @@ const UserDetail = () => {
                 <p>Email: {user.email}</p>
               </li>
               <li>
-                <p>Role: {user.role}</p></li>
-              <li>
-              { user.isActive?
-                <p>Status: <strong id='unsubscribe'>Unsubscribed</strong></p>:
-                <p>Status: <strong id='subscribe'>Subscribed</strong></p>
+                <p>Role: {user.role}</p>
+              </li>
+              
+              <li>{user.role === "user" && user.isActive?
+                <p>Status: <strong id='unsubscribe'>Unsubscribed</strong></p>:user.role === "user" && !user.isActive?
+                <p>Status: <strong id='subscribe'>Subscribed</strong></p>:<></>
                 }
               </li>
+              {user.role === "user"?
               <li>
                   <p>{user.show_end_date}</p>
-              </li>
-              <li>
-                 
-              </li>
+              </li>:<></>
+              }
               </div>
             </ul>
           </div>
         </aside>
-        <main className='content'>
+        <main className={user.role === "admin"?'content admin':'content'}>
           <div className='buttons'>
             <Link to={`/update-user/${user._id}`} className='btn btn-yellow'>Edit User</Link>
-          { 
+            <button className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </button>
+          { user.role ==="admin"?<button className='btn btn-disabled' style={{textDecoration:'line-through'}}>Subcribe</button>:
             user.isActive?<button className='btn btn-disabled'>Unsubscribed</button>
             :<Link to={`/subscribe/${user._id}`} className='btn btn-green'>Subscribe</Link>
             
           }
-            <button className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </button>
+            
           </div>
-          <div className='car-list sub-content'>
-            <Car user={user}/>
+          <div className='car-list sub-content' >
+            {user.role === "user"?<Car user={user}/>:<></>}
           </div>
           <div className='service-section sub-content'>
             <Services />

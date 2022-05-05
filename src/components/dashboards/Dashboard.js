@@ -53,7 +53,7 @@ const Dashboard = ({services})=> {
             
           </div>
           <div className='car-list sub-content'>
-            <Car/>
+            <Car />
           </div>
           <div className='service-section sub-content'>
             <Services services={services}/>
