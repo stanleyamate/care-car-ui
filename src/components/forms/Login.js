@@ -44,11 +44,14 @@ const Login = () => {
        setErrMsg('no server response');
      }else if(err.response?.status === 404){
        setMsg(err?.response.data.message)
+       setIsLogged(false)
      }
      else if(err.response?.status === 401){
        setMsg(err?.response.data.message)
+       setIsLogged(false)
      }else{
        setErrMsg('Login failed')
+       setIsLogged(false)
      }
  }
 }

@@ -1,4 +1,4 @@
-import React,{ useState, useContext} from 'react'
+import React,{ useState,useEffect, useContext} from 'react'
 import {BiRefresh} from 'react-icons/bi'
 import './AdminDashBoard.css'
 import { Link} from 'react-router-dom'
@@ -29,7 +29,14 @@ const AdminDashBoard = () => {
     }
 
 }
-const getUsersHandler=()=>{
+useEffect(()=>{
+  let isMouted=true
+  getUsers()
+  return ()=>{
+    isMouted=false
+  }
+},[auth])
+const refreshUsersHandler=()=>{
   getUsers()
 }
 
@@ -49,7 +56,7 @@ const getUsersHandler=()=>{
   ):(
     <div className='no-user'>
       <h4>No Users yet...</h4>
-    <button className='btn btn-yellow refresh' onClick={getUsersHandler}><BiRefresh className='fill-white' size={25}/>Refresh</button>
+    <button className='btn btn-yellow refresh' onClick={refreshUsersHandler}><BiRefresh className='fill-white' size={25}/>Refresh</button>
     </div>
   )
   const serviceList = services.length?(
@@ -105,7 +112,7 @@ const getUsersHandler=()=>{
               <small>Total: {users.length}</small>
               {users.length?
               <>
-              <button className='btn btn-yellow refresh' onClick={getUsersHandler}><BiRefresh className='fill-white' size={25}/>Refresh</button> <br />
+              <button className='btn btn-yellow refresh' onClick={refreshUsersHandler}><BiRefresh className='fill-white' size={25}/>Refresh</button> <br />
               </>:<></>}
               {users.length?
               <table>

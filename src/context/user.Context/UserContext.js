@@ -10,7 +10,7 @@ const UserContextProvider = (props) =>{
     const [users, setUsers]=useState([])
     const [user, setUser]=useState({})
     const [msg, setMsg]=useState({})
-    const {islogged}= useAuth()
+    const {isLogged}= useAuth()
     const controller = new AbortController();
     const signal = controller.signal;
 
@@ -32,13 +32,13 @@ const UserContextProvider = (props) =>{
      }
     useEffect(()=>{
        let isMounted=true;
-    if(islogged){
-        getUsers()
-    }
+       if(isLogged){
+           getUsers()
+       }
     return()=>{
         isMounted=false;
         }
-    },[islogged,user])
+    },[isLogged,user])
     
 
     const deleteUser =async(id)=>{
