@@ -152,7 +152,7 @@
 } */
 .jumbo .card-group .card{
    padding: 2em 1em;
-   background-color: rgba(224, 242, 250, 0.473);
+   background-color: rgb(237, 245, 245);
    display: flex;
    flex-direction: column;
    text-align: center;
@@ -162,11 +162,10 @@
    border-radius: 10px;
    border: 1px solid rgb(203, 240, 240);
    /* border: 1px solid rgb(248, 172, 57); */
-
    box-shadow: 0 0 10px rgb(192, 192, 192);
 }
 .jumbo .card-group .card .card-icon{
- background-color:rgb(211, 248, 248);
+ background-color:rgb(143, 170, 228);
  width: 4em;
  height: 4em;
  padding-top: 1em;
@@ -176,13 +175,15 @@
 }
 .jumbo .card-group .card h3{
  text-transform: uppercase;
- color: rgba(128, 128, 128, 0.788);
+ font-family: sans-serif;
+ color: rgb(82, 75, 75);
+ /* color: rgba(128, 128, 128, 0.788); */
  margin-bottom: .5em;
 
 }
 
 .jumbo .card-group .card p{
- color: rgba(128, 128, 128, 0.788);
+ color: rgba(63, 58, 58, 0.788);
 
 }
 @media screen and (min-width: 600px){
@@ -215,14 +216,14 @@
     }
     .jumbo .card-group{
         flex-direction: row;
-         justify-content: space-evenly;
+         justify-content: space-around;
          padding: 0 3em;
     }
     .jumbo .card-group .card:nth-child(2){
         margin-top: 5em;
     }
     .jumbo .card-group .card{
-        max-width: 250px ;
+        max-width: 200px ;
     }
     .jumbo .card-group{
         background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),url("../../assets/images/about-bg.png") no-repeat;
