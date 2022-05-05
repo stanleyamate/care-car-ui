@@ -40,7 +40,7 @@ const refreshUsersHandler=()=>{
   getUsers()
 }
 
-  const usersList= users.length?(
+  const usersList= !users.length?(
     users.map(user=>{
         return(
           <tr key={user._id}>
@@ -114,7 +114,7 @@ const refreshUsersHandler=()=>{
               <>
               <button className='btn btn-yellow refresh' onClick={refreshUsersHandler}><BiRefresh className='fill-white' size={25}/>Refresh</button> <br />
               </>:<></>}
-              {users.length?
+              {!users.length?<div>{usersList}</div>:
               <table>
                      <thead>
                         <tr>
@@ -127,7 +127,7 @@ const refreshUsersHandler=()=>{
                      <tbody>
                         {usersList}    
                      </tbody>
-              </table>:<div>{usersList}</div>}
+              </table>}
           </div>
           <div className='service-section sub-content'>
             <ul>

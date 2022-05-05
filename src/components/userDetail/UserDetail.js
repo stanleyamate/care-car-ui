@@ -61,9 +61,9 @@ const UserDetail = () => {
           <div className='buttons'>
             <Link to={`/update-user/${user._id}`} className='btn btn-yellow'>Edit User</Link>
             <button className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </button>
-          { user.role ==="admin"?<button className='btn btn-disabled' style={{textDecoration:'line-through'}}>Subcribe</button>:
-            user.isActive?<button className='btn btn-disabled'>Unsubscribed</button>
-            :<Link to={`/subscribe/${user._id}`} className='btn btn-green'>Subscribe</Link>
+          { user.role ==="admin" && !user.isActive?<button className='btn btn-disabled' style={{textDecoration:'line-through'}}>Subcribed</button>:
+            user.role !== "admin" && user.isActive?<Link to={`/subscribe/${user._id}`} className='btn btn-green'>Subscribe</Link>
+            :<button className='btn btn-disabled'>Unsubscribed</button>
             
           }
             
