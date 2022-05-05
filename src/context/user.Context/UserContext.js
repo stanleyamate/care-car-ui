@@ -15,7 +15,7 @@ const UserContextProvider = (props) =>{
     const signal = controller.signal;
 
     const getUsers =async()=>{
-        await axiosWithAuth().get('/admin/users',{signal:signal})
+        await axiosWithAuth().get('/admin/users')
          .then(res=>{
              setUsers(res.data.data)
          }).catch(err=>{
@@ -31,11 +31,12 @@ const UserContextProvider = (props) =>{
          }) 
      }
     useEffect(()=>{
+       let isMounted=true;
     if(islogged){
         getUsers()
     }
-        return()=>{
-             controller.abort();
+    return()=>{
+        isMounted=false;
         }
     },[islogged,user])
     
@@ -78,7 +79,7 @@ const UserContextProvider = (props) =>{
                  }else if(err.request){
                      console.log(err.request)
                  }else{
-                     setMsg(err.response)
+                     setMsg(err.response.data.message)
                  }
              }) 
     }
@@ -88,7 +89,14 @@ const UserContextProvider = (props) =>{
         .then(res=>{
             setMsg(res.data.message)
         })
-        .catch(err=>{testLog(err)})
+        .catch(err=>{
+            if(err.response.status === 500){
+                setMsg("Server Error")
+            }
+            else if(err.response.status === 400){
+                setMsg(err.response.data.message)
+            }
+        })
     }
     return (
         <UserContext.Provider 

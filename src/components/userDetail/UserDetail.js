@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useEffect, useContext} from 'react'
 import { Link, useParams,useNavigate} from 'react-router-dom';
 import { UserContext } from '../../context/user.Context/UserContext';
 import Car from '../car/Car';
@@ -6,14 +6,11 @@ import Services from '../service/Services';
 import './UserDetail.css'  
 
 const UserDetail = () => {
-  const {users, deleteUser, subscribeUser} = useContext(UserContext)
+  const {users, deleteUser} = useContext(UserContext)
   const { id }=  useParams();
   const navigate=useNavigate();
   const user = users.find(user=>(user._id).toString() === id)
-  const [person, setPerson]=useState([])
-  useEffect(()=>{
-    setPerson(user)
-  },[user])
+ 
   const deleteUserHandler=(e)=>{
     e.preventDefault()
      try {

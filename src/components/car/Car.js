@@ -14,11 +14,9 @@ const Car = ({user}) => {
             <div className='card'>
                 <div className='card-body'>
                    <div className='card-img'>
-              <img src={`http://localhost:4000/${auth.image || user.image}`} alt='user-car' />
-                        {
-                            !user?.image && !auth?.image?
-                            <img src={CarDefault} alt="car-default"  />
-                            :<></>
+                     {(user.image || auth.image)?
+                     <img src={`http://localhost:4000/${auth.image || user.image}`} alt='user-car' />
+                     :<img src={CarDefault} alt="car-default"/>
                         }
                    </div>
                    <div className='card-details'>

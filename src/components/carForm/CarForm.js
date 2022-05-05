@@ -5,7 +5,7 @@ import './CarForm.css'
 
 const CarForm = () => {
   const { id }= useParams();
-  const {updateCarHandler, msg }= useContext(UserContext)
+  const {updateCarHandler}= useContext(UserContext)
   
   const [image, setImage]=useState()
   const handleFile =(e)=>{
@@ -28,7 +28,6 @@ const CarForm = () => {
         <div className='update-service-con'>
             <form onSubmit={(e)=>e.preventDefault()}>
                <h2>Add / Update Car</h2>
-               <span className='message'>{msg}</span>
                <div>
                <label htmlFor='car-form'>
                </label>

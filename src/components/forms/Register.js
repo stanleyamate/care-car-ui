@@ -18,7 +18,7 @@ const Register = () => {
   const [password, setPassword]=useState("");
   const [plan, setPlan]=useState("none");
   const [role, setRole]=useState("user");
-  const [errMsg, setErrMsg]=useState("");
+  // const [errMsg, setErrMsg]=useState("");
 const handleFile =(e)=>{
   let file=e.target.files[0]
     setImage(file)
@@ -55,17 +55,17 @@ const handleRegister= async(e)=>{
        
     } catch (err) {
       if(!err?.response){
-        setErrMsg('no server response');
+        setMsg('no server response');
       }
       else if(err?.response?.status === 409){
-        setMsg(err.response.data.message.msg)
+        setMsg(err.response.data.message)
       }else{
-        setErrMsg('Registration failed')
+        setMsg('Registration failed')
       }
     }
  }
   useEffect(()=>{
-    setErrMsg('');
+    setMsg({});
   }, [username,full_names, password, email, plan, role, car_model, image])
 
 

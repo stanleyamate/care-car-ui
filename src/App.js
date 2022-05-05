@@ -35,8 +35,9 @@ const App =()=>{
 
                    <Route path="/admin/register" element={<AdminRegister/>} />
                    
-
                    <Route   path="service" element={<Services />}  />
+                   
+                   <Route  path="subscribe/:id" element={<Subscribe />} /> 
                    
                    <Route path='about' element={<About />} />
 
@@ -44,15 +45,15 @@ const App =()=>{
                    <Route element={<RequireAuth allowedRoles={"user"}/>}>
                         <Route  path="user-dashboard" element={<Dashboard />} /> 
                         <Route  path="upload-car/:id" element={<CarForm />} /> 
-                        <Route  path="subscribe/:id" element={<Subscribe />} /> 
                     </Route>   
 
   
                     <Route element={<RequireAuth allowedRoles={"admin"}/>}>
+                        <Route  path="user-detail/:id" element={<UserDetail/>}/>   
                         <Route  path="admin-board" element={<AdminDashBoard />} />
                         <Route  path="carlist" element={<Carlist/>} />
-                         <Route   path="users" element={<UsersTable />}  />
-                         <Route  path="user-detail/:id" element={<UserDetail/>}/>  
+                        <Route   path="users" element={<UsersTable />}  />
+                          
                          <Route  path="update-service/:id" element={<UpdateService/>} />
                          <Route  path="update-user/:id" element={<EditUser/>} />
                      </Route>

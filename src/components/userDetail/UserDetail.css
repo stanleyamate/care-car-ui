@@ -64,8 +64,6 @@
     margin: 0 auto 1em auto;
 
 }
-
-@media (min-width:250px) {
     .dashboard-container .content .buttons{
         display: flex;
         flex-direction: column;
@@ -75,10 +73,10 @@
         margin: .3em 0;
         text-align: center;
     }
-}
 
 
-@media (min-width:750px) {
+
+@media (min-width:800px) {
     .dashboard-container{
         display: flex;
         padding: 0 2em;
@@ -104,14 +102,16 @@
     .dashboard-container .content .car-list{
        grid-area: car;
     }
+    
+    
     .dashboard-container .content .service-section{
         grid-area: service;
     }
     
 }
+
 @media (min-width:950px) {
     .dashboard-container{
-        display: flex;
         padding: 0 3em;
     
     }
@@ -127,6 +127,13 @@
     }
     .dashboard-container .content .buttons{
        grid-area: buttons;
+    }
+    .dashboard-container .content .buttons{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }.dashboard-container .content .buttons .btn{
+        width: 30%;
     }
     .dashboard-container .content .car-list{
        grid-area: car;

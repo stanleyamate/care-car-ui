@@ -1,9 +1,9 @@
 
-.dashboard-container{
+.duser-ashboard-container{
     display: block;
 
 }
-.dashboard-container .side-bar{
+.user-dashboard-container .side-bar{
     width: 100%;
     display: flex;
     background-color: aliceblue;
@@ -12,35 +12,35 @@
     margin: 1em 0;
 
 }
-.dashboard-container .side-bar .profile{
+.user-dashboard-container .side-bar .profile{
     width: 100%;
     display: flex;
     align-items: center;
     border-radius: 10px;
     padding:1em;
 }
-.dashboard-container .side-bar .profile,
-.dashboard-container .side-bar .details,
-.dashboard-container .content .buttons{
+.user-dashboard-container .side-bar .profile,
+.user-dashboard-container .side-bar .details,
+.user-dashboard-container .content .buttons{
     border: 1px solid rgb(228, 220, 220);
     border-radius: 10px;
     background-color: white;
 }
-.dashboard-container .side-bar .details{
+.user-dashboard-container .side-bar .details{
     padding: 0 1em 1em 1em;
     margin-top: 1em;
     
 }
 
-.dashboard-container .side-bar .profile-name{
-    margin-left: 1em;
+.user-dashboard-container .side-bar .profile-name{
     text-align: center;
+    margin: 0 auto;
     
 }
-.dashboard-container .side-bar li {
+.user-dashboard-container .side-bar li {
     margin-top: 1em;
 }
-.dashboard-container .side-bar div {
+.user-dashboard-container .side-bar div {
     width: 100%;
 }
 img[alt="profile-img"]{
@@ -50,40 +50,47 @@ img[alt="profile-img"]{
     border: 2px solid rgb(132, 130, 247);
     padding: .11em;
 }
-.dashboard-container .side-bar #subscribe{
+.user-dashboard-container .side-bar #subscribe{
     color: green;
 }
-.dashboard-container .side-bar #unsubscribe{
+.user-dashboard-container .side-bar #unsubscribe{
     color: rgb(238, 99, 99);
 }
 
-.dashboard-container .content .buttons{
+.user-dashboard-container .content .buttons{
     background-color: beige;
     padding: 1em;
     margin: 1em;
 }
-.dashboard-container .content .sub-content{
+.user-dashboard-container .content .sub-content{
     width: 93%;
     margin: 0 auto 1em auto;
 
 }
-.dashboard-container .content .buttons{
+.user-dashboard-container .content .buttons{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
+.user-dashboard-container .content .buttons .btn{
+    width: 100%;
+    margin: .2em 0;
+    text-align: center;
+}
 
 
-@media (min-width:750px) {
-    .dashboard-container{
+@media (min-width:600px) {
+    .user-dashboard-container{
         display: flex;
         padding: 0 2em;
     
     }
-    .dashboard-container .side-bar{
+   
+    .user-dashboard-container .side-bar{
         width: 40%;
     }
-    .dashboard-container .content{
+    .user-dashboard-container .content{
         width: 60%;
         display: grid;
         grid-template-columns: 1fr;
@@ -91,44 +98,50 @@ img[alt="profile-img"]{
                                "car" 
                              "service";
     }
-    .dashboard-container .content .buttons{
+    .user-dashboard-container .content .buttons{
        grid-area: buttons;
     }
-    .dashboard-container .content .car-list{
+    .user-dashboard-container .content .car-list{
        grid-area: car;
     }
-    .dashboard-container .content .service-section{
+    .user-dashboard-container .content .service-section{
         grid-area: service;
     }
 }
-@media (min-width:950px) {
-    .dashboard-container{
+@media (min-width:800px) {
+    .user-dashboard-container{
         display: flex;
         padding: 0 3em;
     
     }
-    .dashboard-container .side-bar{
+    .user-dashboard-container .side-bar{
         width: 30%;
     }
-    .dashboard-container .content{
+    .user-dashboard-container .content{
         width: 70%;
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-template-areas: "buttons buttons"
                              "car service";
     }
-    .dashboard-container .content .buttons{
+    .user-dashboard-container .content .buttons{
        grid-area: buttons;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
     }
-    .dashboard-container .content .car-list{
+    .user-dashboard-container .content .buttons .btn{
+        width: 30%;
+    }
+    .user-dashboard-container .content .car-list{
        grid-area: car;
     }
-    .dashboard-container .content .service-section{
+    .user-dashboard-container .content .service-section{
         grid-area: service;
     }
 }
 @media (min-width:1042px) {
-    .dashboard-container{
+    .user-dashboard-container{
         padding: 0 4em;
     }
  

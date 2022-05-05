@@ -31,7 +31,7 @@
 }
 
 .admin-container .side-bar .profile-name{
-    margin-left: 1em;
+    margin: 0 auto;
     text-align: center;
     text-transform: capitalize;
 }
@@ -71,9 +71,9 @@
     background-color: beige;
     padding: 1em;
     display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 .admin-container .content .buttons .btn:not(.content .buttons .btn:last-child){
     margin-bottom: .5em;
@@ -176,11 +176,15 @@ th, td {
     .admin-container .content .service-section form .btn{
         width: 18%;  
      }
+     .admin-container .content .buttons .btn{
+        width: 100%;
+        text-align: center;
+    }
     
 }
   
 
-@media (min-width:750px) {
+@media (min-width:800px) {
     .admin-container{
         display: flex;
         padding: 0 3em;
@@ -212,8 +216,9 @@ th, td {
     .admin-container .content .service-section form .btn{
         width: 23%;  
      } */
+     
 }
-@media (min-width:950px) {
+@media (min-width:900px) {
     .admin-container{
         display: flex; 
         padding: 0 3em;   

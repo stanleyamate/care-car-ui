@@ -25,12 +25,12 @@
   bottom: 3em;
 }
 .success{
-    background-color: rgba(71, 231, 71, 0.418);
+    background-color: rgba(71, 231, 71, 0.637);
     border: 2px solid green;
 
 }
 .failed{
-    background-color: rgba(250, 61, 61, 0.418);
+    background-color: rgba(250, 61, 61, 0.596);
     border: 2px solid red;
 }
 span{

@@ -14,7 +14,7 @@ const Dashboard = ({services})=> {
   return (
 
     <div className='user-dashboard'>
-      <div className='dashboard-container'>
+      <div className='user-dashboard-container'>
         <aside className='side-bar'>
           <div>
             <ul>
