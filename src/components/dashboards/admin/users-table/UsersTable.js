@@ -14,9 +14,9 @@ const UsersTable = () => {
             return(
                <tr key={user._id}>
                         <td>{ user.username }</td>
-                        <td className='tablet'>{ user.email }</td>
+                        <td className='tablet mobile-hide'>{ user.email }</td>
                         <td className='tablet'>{ user.plan}</td>
-                        <td className='tablet'>
+                        <td className='tablet mobile-hide'>
                            {
                               user.image?<img src={`http://localhost:4000/${user.image}`} alt="car" height="50px" />:
                               <img src={CarDefault} alt="car" height="50px" />
@@ -58,9 +58,9 @@ const UsersTable = () => {
                      <thead>
                         <tr>
                            <th>Username</th>
-                           <th className='tablet'>Email</th>
+                           <th className='tablet mobile-hide'>Email</th>
                            <th className='tablet'>Plan</th>
-                           <th className='tablet'>Car Image</th>
+                           <th className='tablet mobile-hide'>Car Image</th>
                            <th>Manage</th>
                         </tr>
                      </thead>
