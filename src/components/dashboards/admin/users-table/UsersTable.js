@@ -18,7 +18,7 @@ const UsersTable = () => {
                         <td className='tablet'>{ user.plan}</td>
                         <td className='tablet mobile-hide'>
                            {
-                              user.image?<img src={`http://localhost:4000/${user.image}`} alt="car" height="50px" />:
+                              user.image?<img src={`https://auto-care-api.herokuapp.com/${user.image}`} alt="car" height="50px" />:
                               <img src={CarDefault} alt="car" height="50px" />
                            }
                         </td>
@@ -69,7 +69,7 @@ const UsersTable = () => {
                      </tbody>
                   </table>
               </div>
-           </div>
+          </div>
       )
   
 }

@@ -1,4 +1,3 @@
-import React,{ useEffect } from "react";
 import { axiosPrivate } from "../components/api/axios";
 import useAuth from "./useAuth";
 
