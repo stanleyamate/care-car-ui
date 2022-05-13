@@ -66,16 +66,16 @@
         background: rgba(44, 44, 71, 0.973);
         padding: 1em ;
         z-index: 10;
-        top: 4em;
         right: 0;
         /* top: 3.9em;
         right: -100%; */
+        top: -90vh ;
         padding-bottom: 350px;
         scroll-behavior: initial;
     }
     .active{
             /* right: 0 !important; */
-            top: -90vh !important;
+            top: 4em !important;
      }
     
     .nav-container li a{
