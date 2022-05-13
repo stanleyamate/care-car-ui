@@ -61,17 +61,21 @@
         flex-direction: column;
         transition: .5s;
         align-items: center;
-        height: 100vh;
+        height: 90vh;
         width: 80%;
         background: rgba(44, 44, 71, 0.973);
         padding: 1em ;
         z-index: 10;
-        top: 3.9em;
-        right: -100%;
+        top: 4em;
+        right: 0;
+        /* top: 3.9em;
+        right: -100%; */
         padding-bottom: 350px;
+        scroll-behavior: initial;
     }
     .active{
-            right: 0 !important;
+            /* right: 0 !important; */
+            top: -90vh !important;
      }
     
     .nav-container li a{

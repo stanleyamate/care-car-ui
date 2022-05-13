@@ -58,4 +58,14 @@
         margin-right: auto;
         margin-left: .2em;
     }
+    .service-con{
+        padding: 0 1em;
+    
+    }
 }
+/* @media screen and (max-width:0px) {
+    .service div:first-child{
+        margin-right: auto;
+        margin-left: .2em;
+    }
+} */

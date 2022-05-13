@@ -11,7 +11,7 @@ import Profile from '../../assets/images/profile.png'
 
 const Navbar = () => {
    const {auth, isLogged, logout}=useAuth();
-    const [click, setClick] = useState(false)
+   const [click, setClick] = useState(false)
    const handleClick = () =>setClick(!click)
    const handleDefault=()=> setClick(false)
    
@@ -30,7 +30,7 @@ const Navbar = () => {
              }
             
             <li>
-              <Link to={'/'} onClick={handleDefault}><AiOutlineHome className='nav-icon'/>Home</Link>
+              <Link to={'/'} onClick={()=>setClick(false)}><AiOutlineHome className='nav-icon'/>Home</Link>
             </li>
             {auth.role ==="admin"?
               <li>

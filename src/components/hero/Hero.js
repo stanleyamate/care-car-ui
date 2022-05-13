@@ -14,7 +14,7 @@ const Hero = () => {
      <>
         <div className='hero'>
           <div className='caption'>
-              <h1>Auto-Care</h1>
+              <h1>Auto Care</h1>
               <h3>We Offer Top Notch Auto Services to anyone and everyone...</h3>
               <Link to={"/service"} className='btn btn-hero' >Services And Plans</Link>
               

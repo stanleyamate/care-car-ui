@@ -1,3 +1,4 @@
+
 a{
     text-decoration: none;
 }
@@ -38,5 +39,9 @@ img[alt="profile-img"]{
     
     .mobile-hide{
         display: none;
+    }
+    body{
+    overflow-x: hidden;
+    width: fit-content;
     }
 }

@@ -35,10 +35,10 @@ const Footer = () => {
             </div>
       </div>
         <div className='social'>
-        <div className="icon"><FaFacebook /></div>
-          <div className="icon"><FaTwitter /></div>
-          <div className="icon"><FaLinkedin /></div>
-          <div className="icon"><FaGitAlt /></div>
+        <div className="icon"><FaFacebook size={25}/></div>
+          <div className="icon"><FaTwitter size={25}/></div>
+          <div className="icon"><FaLinkedin size={25}/></div>
+          <div className="icon"><FaGitAlt size={25}/></div>
       </div>
       <div className='footer-base'>
           <p>CopyRights {new Date().getFullYear()}</p>

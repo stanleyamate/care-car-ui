@@ -2,7 +2,9 @@
     background: rgb(247, 244, 244);
     padding: 2em;
 }
-.footer .footer-base{
+.footer .container .col{
+    font-size: 20px;
+
 }
 .footer .social{
     display: flex;
@@ -10,6 +12,10 @@
     width: 100%;
     margin-bottom: 2em;
 }
+.footer .social .icon{
+    margin: 1em;
+}
+
 .footer .container{
     --gap:2em;
     display: grid;
@@ -40,9 +46,7 @@
 .footer .col h3{
     margin-bottom: .6em;
 }
-.footer .col h3,.footer .col p{
-    font-size: 1.8em;
-}
+
 .footer p:not(.footer p:last-child){
     margin-bottom: .6em;
 }
@@ -55,13 +59,12 @@
     .footer .social div{
         margin: 1em;
     }
-    .footer .col h3, .footer .col p{
+    .footer .container .col{
         font-size: 1em;
     }
 }
 @media screen and (min-width:700px){
     .footer .container{
         grid-template-areas: 'col-1 col-2 col-3 col-4';
-        font-size: 1em;
     }
 }
