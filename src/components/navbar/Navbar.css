@@ -69,13 +69,13 @@
         right: 0;
         /* top: 3.9em;
         right: -100%; */
-        top: -90vh ;
+        top: -700px;
         padding-bottom: 350px;
         scroll-behavior: initial;
     }
     .active{
             /* right: 0 !important; */
-            top: 4em !important;
+            top: 63px !important;
      }
     
     .nav-container li a{
