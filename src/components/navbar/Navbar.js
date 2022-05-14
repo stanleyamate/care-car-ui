@@ -30,7 +30,7 @@ const Navbar = () => {
              }
             
             <li>
-              <Link to={'/'} onClick={()=>setClick(false)}><AiOutlineHome className='nav-icon'/>Home</Link>
+              <Link to={'/'} onClick={handleDefault}><AiOutlineHome className='nav-icon'/>Home</Link>
             </li>
             {auth.role ==="admin"?
               <li>
@@ -49,12 +49,12 @@ const Navbar = () => {
           </ul>
             {
               isLogged ?<Link to={'/'} onClick={logout} className='btn'><BiLogInCircle className='nav-icon fill-white' /> Log out</Link>
-              : <Link to={'/login'} className='btn'><AiOutlineLogin className='nav-icon fill-white' />SignIn/Register</Link>
+              : <Link to={'/login'} className='btn'><AiOutlineLogin className='nav-icon fill-white' />SignIn/SignUp</Link>
             }        
-        <div className='hamburger' onClick={handleClick}>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div  onClick={handleClick} className={click ? "hamburger enabled": "hamburger"}>
+            <div className={click ? "active-white": " "}></div>
+            <div className={click ? "active-white": " "}></div>
+            <div className={click ? "active-white": " "}></div>
         </div>
       </div>
     </div>

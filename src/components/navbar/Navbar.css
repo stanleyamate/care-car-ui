@@ -1,6 +1,7 @@
 .nav-container .hamburger{
     display: none;
     background: rgb(255, 255, 255);
+    /* background: rgba(44, 44, 71, 0.973); */
     height: auto;
     width: auto;
     padding: .2em .3em;
@@ -77,11 +78,15 @@
             /* right: 0 !important; */
             top: 63px !important;
      }
-    
+     .active-white{
+         background-color: rgb(243, 237, 237) !important;
+     }
+     .enabled{
+             background-color: rgba(81, 81, 138, 0.911) !important;
+     }
     .nav-container li a{
         font-size: 1.5em;
         color: white;
-        
     }
     .nav-container .nav-menu li {
         border-bottom: 1px solid rgba(177, 175, 175, 0.329);
@@ -90,9 +95,9 @@
         text-align: center;
     }
     /* .nav-container .nav-menu li:first-child {
-       margin-top: 2em;
+        margin-top: 2em;
     } */
     .nav-container .hamburger{
         display: block;
-     }
+    }
 }
