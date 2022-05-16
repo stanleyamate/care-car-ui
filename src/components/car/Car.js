@@ -13,7 +13,9 @@ const Car = ({user}) => {
             <h1>Car Detail</h1>
             <div className='card'>
                 <div className='card-body'>
-                   <div className='card-img'>{auth.image || user.image?<img src={`https://auto-care-api.herokuapp.com/${ auth.image || user.image  }`} alt='user-car' />:<img src={CarDefault} alt="car-default"/>
+                   <div className='card-img'>{
+                   user && user.image?<img crossOrigin='anonymous' src={`https://auto-care-api.herokuapp.com/${user.image}`} alt='user-car'/>: !user && auth && auth.image?<img crossOrigin='anonymous' src={`https://auto-care-api.herokuapp.com/${auth.image}`} alt='user-car'/>:
+                   <img crossOrigin='anonymous' src={CarDefault} alt="car-default"/>
                         }
                    </div>
                    <div className='card-details'>

@@ -35,11 +35,7 @@
     outline: none;
     transition: .2s;
 }
-/* .update-form input::before{
-    content: '';
-    border: none;
-    border-radius: 4px;
-} */
+
 
 .update-form input:focus{
     border-bottom: 1px solid rgb(117, 113, 228);

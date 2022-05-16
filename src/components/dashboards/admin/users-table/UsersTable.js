@@ -18,7 +18,7 @@ const UsersTable = () => {
                         <td className='tablet'>{ user.plan}</td>
                         <td className='tablet mobile-hide'>
                            {
-                              user.image?<img src={`https://auto-care-api.herokuapp.com/${user.image}`} alt="car" height="50px" />:
+                              user.image?<img crossOrigin='anonymous' src={`https://auto-care-api.herokuapp.com/${user.image}`} alt="car" height="50px" />:
                               <img src={CarDefault} alt="car" height="50px" />
                            }
                         </td>

@@ -73,10 +73,6 @@
     height: auto;
     padding: 1em;
 }
-.home-container .section-a .box-left
-{
-    
-}
 
 .home-container .section-b
 {
@@ -119,9 +115,7 @@
 {  
     margin-bottom: 1em;
 }
-.home-container .section-a
-{
-}
+
 .home-container .jumbo{
     min-height: 10em;
 }
@@ -273,18 +267,14 @@
     font-size:5em;
     margin-bottom: .3em;
 }
-.home-container .jumbo .card-group{
-    
-}
+
 .jumbo .card-group .card{
     background-color: aliceblue;
     display: flex;
     text-align: center;
 
 }
-.home-container .jumbo .card-group{
 
-}
     /* .hero{
         display: block;
     }

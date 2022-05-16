@@ -19,7 +19,7 @@ const Navbar = () => {
    
   return (
     <>
-    <div className='navbar'>
+    <nav className='navbar'>
       <div className='nav-container'>
           <img className='logo' src={Logo} alt='logo'/>
           <ul className={click ?'nav-menu active': 'nav-menu'}>
@@ -58,7 +58,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="nav-bottom"></div>
-    </div>
+    </nav>
     </>
   )
 }

@@ -44,8 +44,10 @@ const UserDetail = () => {
               </li>
               
               <li>{user.role === "user" && user.isActive?
-                <p>Status: <strong id='unsubscribe'>Unsubscribed</strong></p>:user.role === "user" && !user.isActive?
-                <p>Status: <strong id='subscribe'>Subscribed</strong></p>:<></>
+              <p>Status: <strong id='subscribe'>Subscribed</strong></p>
+                :user.role === "user" && !user.isActive?
+              <p>Status: <strong id='unsubscribe'>Unsubscribed</strong></p>
+                :<></>
                 }
               </li>
               {user.role === "user"?
@@ -61,15 +63,15 @@ const UserDetail = () => {
           <div className='buttons'>
             <Link to={`/update-user/${user._id}`} className='btn btn-yellow'>Edit User</Link>
             <button className='btn btn-red'onSubmit={deleteUserHandler}>Delete User </button>
-          { user.role ==="admin" && !user.isActive?<button className='btn btn-disabled' style={{textDecoration:'line-through'}}>Subcribed</button>:
-            user.role !== "admin" && user.isActive?<Link to={`/subscribe/${user._id}`} className='btn btn-green'>Subscribe</Link>
+          { user.role ==="admin"?<button className='btn btn-disabled' style={{textDecoration:'line-through'}}>Subcribed</button>:
+            user.role === "user" && !user.isActive?<Link to={`/subscribe/${user._id}`} className='btn btn-green'>Subscribe</Link>
             :<button className='btn btn-disabled'>Unsubscribed</button>
             
           }
             
           </div>
           <div className='car-list sub-content' >
-            {user.role === "user"?<Car user={user}/>:<></>}
+            {user && user.role === "user"?<Car user={user}/>:<></>}
           </div>
           <div className='service-section sub-content'>
             <Services />
