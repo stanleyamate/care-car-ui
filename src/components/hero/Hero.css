@@ -24,6 +24,7 @@
     z-index: 2;
     justify-content: center;
     flex-direction: column;
+    margin-top: 5em;
     /* overflow: hidden; */
 }
 .hero .caption{

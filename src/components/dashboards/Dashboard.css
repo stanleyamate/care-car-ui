@@ -1,6 +1,9 @@
 
-.duser-ashboard-container{
+.user-dashboard-container{
     display: block;
+}
+.user-dashboard{
+    margin-top: 5em;
 }
 .user-dashboard-container .side-bar{
     width: 100%;
