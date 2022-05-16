@@ -226,7 +226,7 @@
         max-width: 200px ;
     }
     .jumbo .card-group{
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),url("../../assets/images/about-bg.png") no-repeat;
+        background: linear-gradient(90deg, orange, rgba(0, 0, 0, 0)),url("../../assets/images/about-bg.png") no-repeat;
         background-size: contain;
         background-position: 100% 0;
     }

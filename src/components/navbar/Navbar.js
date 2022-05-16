@@ -57,6 +57,7 @@ const Navbar = () => {
             <div className={click ? "active-white": " "}></div>
         </div>
       </div>
+      <div className="nav-bottom"></div>
     </div>
     </>
   )

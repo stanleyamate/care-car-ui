@@ -30,7 +30,14 @@
 .navbar{
     width: 100%;
     height: auto;
-    border-bottom: 1px solid rgb(219, 224, 240);
+    /* border-bottom: 1px solid rgb(219, 224, 240); */
+}
+.navbar .nav-bottom{
+    background: linear-gradient(90deg, rgb(88, 88, 245), orange, orange);
+    height: 20px;
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    /* clip-path: polygon(100% 0%,50% 100%, 0% 100%); */
+    
 }
 .navbar .nav-menu{
     display: flex;
@@ -76,7 +83,7 @@
     }
     .active{
             /* right: 0 !important; */
-            top: 63px !important;
+            top: 81px !important;
      }
      .active-white{
          background-color: rgb(243, 237, 237) !important;
