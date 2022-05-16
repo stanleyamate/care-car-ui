@@ -31,12 +31,14 @@
     width: 100%;
     height: auto;
     /* border-bottom: 1px solid rgb(219, 224, 240); */
+    position: fixed;
+    z-index:10;
+    background-color: #fff;
 }
 .navbar .nav-bottom{
     background: linear-gradient(90deg, rgb(88, 88, 245), orange, orange);
     height: 20px;
     clip-path: polygon(0 0, 100% 100%, 0 100%);
-    /* clip-path: polygon(100% 0%,50% 100%, 0% 100%); */
     
 }
 .navbar .nav-menu{
@@ -52,6 +54,11 @@
     color: var(--primary-color);
 }
 @media (max-width: 700px) {
+    .navbar{
+        position: fixed;
+        z-index:10;
+        background-color: #fff;
+    }
     .navbar .nav-container{
         position: relative;
         z-index: 5;
@@ -65,7 +72,7 @@
     }
     
     .navbar .nav-menu{
-        position: absolute;
+        position: fixed;
         flex-direction: column;
         transition: .5s;
         align-items: center;
