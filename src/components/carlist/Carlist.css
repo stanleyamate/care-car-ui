@@ -27,6 +27,7 @@
 }
 .carlist-section .card-body .card-img{
     width: 100%;
+    padding: 1em 0;
 }
 .carlist-section .card-body .card-details h3{
     margin: .5em 0;

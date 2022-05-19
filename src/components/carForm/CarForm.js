@@ -1,10 +1,11 @@
 import React,{ useContext, useState} from 'react'
-import { useParams} from 'react-router-dom'
+import { useParams, useNavigate} from 'react-router-dom'
 import { UserContext } from '../../context/user.Context/UserContext';
 import './CarForm.css'
 
 const CarForm = () => {
   const { id }= useParams();
+  const navigate = useNavigate()
   const {updateCarHandler}= useContext(UserContext)
   
   const [image, setImage]=useState()
@@ -18,7 +19,7 @@ const CarForm = () => {
       fd.append('image', image);
       try {
         updateCarHandler(fd, id )
-        // navigate("/user-dashboard", {replace:true})
+        navigate("/user-dashboard", {replace:true})
       } catch (err) {
         console.log(err)
       }

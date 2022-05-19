@@ -14,8 +14,8 @@ const Carlist = () => {
                    <div className='card-img'>
                       {user?.image?  <img crossOrigin='anonymous' src={
                         `https://auto-care-api.herokuapp.com/${ user.image }`
-                        } alt='user-car' />
-                           : <img src={CarDefault} alt="car-default"  />
+                        } alt='user-car' height={300}/>
+                           : <img src={CarDefault} alt="car-default" height={300} />
                         }
                    </div>
                    <div className='card-details'>

@@ -5,6 +5,8 @@ import { Link} from 'react-router-dom'
 import {ServiceContext} from '../../../context/service.Context/ServiceContext'
 import useAuth from '../../../hooks/useAuth'
 import { UserContext } from '../../../context/user.Context/UserContext'
+import CarDefault from '../../../assets/images/car-default.png'
+
 
 
 const AdminDashBoard = () => {
@@ -48,7 +50,9 @@ const refreshUsersHandler=()=>{
               <td className='mobile-hide'>{ user.email }</td>
               <td className='tablet'>{ user.plan}</td>
              <td className='mobile-hide'>
-                <img crossOrigin='anonymous' src={`https://auto-care-api.herokuapp.com/${user.image}`} alt="car" height="50px" />
+                {
+                user.role ==="user" && user.image?<img crossOrigin='anonymous' src={`https://auto-care-api.herokuapp.com/${user.image}`} alt="car" height="50px" />:<img crossOrigin='anonymous' src={CarDefault} alt="car-default" height="50px"/>
+                }
             </td>
           </tr>
         )
