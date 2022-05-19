@@ -37,9 +37,12 @@ const Dashboard = ({services})=> {
               <li>
                   <p>Date Joined: {Date(auth.createdAt).substring(3, 15)}</p>
               </li>
+            {
+             auth.show_end_date?
               <li>
-                  <p>Date of Exp: {auth.show_end_date}</p>
-              </li>
+                <p>Date of Exp: {auth.show_end_date}</p>
+            </li>:<></>
+            }
               </div>
             </ul>
           </div>  

@@ -50,7 +50,7 @@ const UserDetail = () => {
                 :<></>
                 }
               </li>
-              {user.role === "user"?
+              {user.role === "user" && user.show_end_date?
               <li>
                   <p>{user.show_end_date}</p>
               </li>:<></>

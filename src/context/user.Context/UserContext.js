@@ -49,7 +49,7 @@ const UserContextProvider = (props) =>{
             
     }
     const unsubscribeUser =async(id)=>{
-        await axiosWithAuth().put(`/unsubscribe/${id}`,{plan:"none", isActive:false})
+        await axiosWithAuth().put(`/unsubscribe/${id}`,{plan:"none", isActive:false, show_end_date:null})
         .then(res=>{
             setUser(res.data.update)
             setUsers(...users, user)
